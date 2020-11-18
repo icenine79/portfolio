@@ -15,7 +15,6 @@ export class BaseNasaComponent implements OnInit{
   constructor(private nasaService:NasaService) { }
 
   ngOnInit(): void {
-    this.timer();
     this.nasaService.getDayPicture()
     .subscribe((dayPicture:any)=>{
       this.dayPicture=Array.of(dayPicture);
@@ -30,17 +29,10 @@ export class BaseNasaComponent implements OnInit{
     });
   }
   saveImage(picture:any){
-    this.nasaService.saveImage(picture);
+    this.nasaService.saveImage(picture)
 
   }
-  deleteImage(id:string){
-    this.nasaService.deleteImage(id)
+  deleteImage(picture:any){
+    this.nasaService.deleteImage(picture)
   }
-   timer(){
-    let now= new Date();
-   setInterval(function(){
-    console.log('save')
-   },1000)
-
-}
 }

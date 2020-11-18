@@ -30,7 +30,9 @@ private updatedImages= new Subject<DayPicture[]>()
       }));
   }
 //Node Backend
-
+autoSave(picture:any){
+  console.log(picture)
+}
 getPictureById(id:string):Observable<any>{
   console.log(id)
   return this.http.get<{id:string, message:string, picture:any}>('http://localhost:3000/api/nasa/' + id);
