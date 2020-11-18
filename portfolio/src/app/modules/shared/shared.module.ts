@@ -13,13 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [],
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    NgbModule,
-    MaterialModule,
-    NasaModule,
-    MoviesModule
+
   ]
 })
 export class SharedModule { }
