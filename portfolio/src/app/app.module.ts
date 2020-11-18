@@ -1,3 +1,4 @@
+import { NasaService } from './modules/nasa/services/nasa.service';
 import { SharedModule } from './modules/shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,7 @@ import { MaterialModule } from './modules/material/material.module';
 import { MoviesModule } from './modules/movies/movies.module';
 import { NasaModule } from './modules/nasa/nasa.module';
 import { NavbarComponent } from './app-components/navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,10 +32,11 @@ import { NavbarComponent } from './app-components/navbar/navbar.component';
     NgbModule,
     MaterialModule,
     NasaModule,
-    MoviesModule
+    MoviesModule,
+    HttpClientModule
 
   ],
-  providers: [],
+  providers: [HttpClientModule, NasaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
