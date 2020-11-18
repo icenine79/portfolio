@@ -15,7 +15,7 @@ picture:any;
     this.route.data
     .subscribe(picture=>{
      this.picture = Array.of(picture).map(d=>d['detail']['picture']);
-     console.log(this.picture)
+     console.log(this.picture);
     });
   }
 

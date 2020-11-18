@@ -10,14 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class BaseNasaComponent implements OnInit{
 
   dayPicture: any
-  gallery:DayPicture[]
+  gallery:DayPicture[];
+  error:boolean=false;
   constructor(private nasaService:NasaService) { }
 
   ngOnInit(): void {
-    //this.timer();
+    this.timer();
     this.nasaService.getDayPicture()
     .subscribe((dayPicture:any)=>{
       this.dayPicture=Array.of(dayPicture);
+    },error=>{
+      this.error=true;
     })
     this.nasaService.getImages();
     this.nasaService.getUpdatedImagesListner()
@@ -27,19 +30,17 @@ export class BaseNasaComponent implements OnInit{
     });
   }
   saveImage(picture:any){
-    this.nasaService.saveImage(picture)
+    this.nasaService.saveImage(picture);
 
   }
- /*  timer(){
+  deleteImage(id:string){
+    this.nasaService.deleteImage(id)
+  }
+   timer(){
     let now= new Date();
+   setInterval(function(){
+    console.log('save')
+   },1000)
 
-
-    if (now.getHours()>=7){
-    this.saveImage();
-      alert('auto save!')
-    }else{
-      return false    }
-
-
-} */
+}
 }

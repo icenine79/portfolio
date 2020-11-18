@@ -1,4 +1,7 @@
 <div class="container-fluid">
+  <div *ngIf="error" class="alert alert-danger text-center" role="alert">
+    Sorry, image not available yet. Come back soon!
+  </div>
   <div class="row">
     <div class="col-md-12" *ngIf="dayPicture">
       <mat-card class="example-card mat-elevation-z8" *ngFor="let d of dayPicture">
@@ -46,6 +49,8 @@
         </mat-card-content>
         <mat-card-actions>
           <a mat-raised-button [routerLink]="['/picture-detail', g.id]" color="primary">See Details</a>
+<!--           <button mat-raised-button color="warn" (click)="deleteImage(g.id)">Delete</button>
+ -->
         </mat-card-actions>
       </mat-card>
     </div>

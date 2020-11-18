@@ -36,6 +36,14 @@ getPictureById(id:string):Observable<any>{
   return this.http.get<{id:string, message:string, picture:any}>('http://localhost:3000/api/nasa/' + id);
 }
 
+deleteImage(id:string){
+  this.http.delete<{message:string, id:string}>('http://localhost:3000/api/nasa/'+id)
+  .subscribe(()=>{
+    const updatedImg = this.images.filter(image=>image.id!==id);
+    this.images = updatedImg;
+    this.updatedImages.next([...this.images]);
+  });
+}
 
 getUpdatedImagesListner(){
   return this.updatedImages.asObservable();
