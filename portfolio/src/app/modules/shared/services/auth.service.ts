@@ -21,12 +21,7 @@ currentUser: Observable<User>
 constructor(private http:HttpClient, private router: Router, private jwt:JwtHelperService) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
-    this.currentUser
-    .subscribe(user=>{
-      this.userObject=Array.of(user)
-    })
-    let aux=this.userObject.map(t=>t['token'])
-    this.token=aux[0]
+    console.log(this.isLoggedIn())
   }
 
   get currentUserVaue(){
@@ -34,19 +29,14 @@ constructor(private http:HttpClient, private router: Router, private jwt:JwtHelp
   }
 
   isLoggedIn():boolean{
-   return (this.token!==null)?true:false;
+    const user= localStorage.getItem('currentUser');
+   return (user!==null)?true:false;
   }
-
-isAdmin(){
-  console.log(this.admin)
-}
 
   register(name:string, email:string, password:string){
     const authData: User = {name:name, email:email,password:password}
     this.http.post<{message:string}>('http://localhost:3000/api/user/signup', authData)
     .subscribe(response=>{
-      console.log(response.message);
-      console.log(response)
       this.router.navigate(['/login'])
     },error=>{
       console.log(error)
@@ -78,7 +68,6 @@ isAdmin(){
 
         this.fetchedUser = mapedResponse;
        localStorage.setItem('currentUser',JSON.stringify(this.fetchedUser));
-       console.log(localStorage.getItem('currentUser'))
         this.router.navigate(['/home'])
       }
   })
