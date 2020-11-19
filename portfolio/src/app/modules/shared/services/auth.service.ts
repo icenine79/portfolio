@@ -3,15 +3,43 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private tokenTimer: any;
+  private token:any;
+  private admin:any;
   private fetchedUser:User;
+  private userObject:any[]=[]
+private currentUserSubject: BehaviorSubject<User>
+currentUser: Observable<User>
 
-  constructor(private http:HttpClient, private router: Router) { }
+constructor(private http:HttpClient, private router: Router, private jwt:JwtHelperService) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+    this.currentUser
+    .subscribe(user=>{
+      this.userObject=Array.of(user)
+    })
+    let aux=this.userObject.map(t=>t['token'])
+    this.token=aux[0]
+  }
+
+  get currentUserVaue(){
+    return this.currentUserSubject.value;
+  }
+
+  isLoggedIn():boolean{
+   return (this.token!==null)?true:false;
+  }
+
+isAdmin(){
+  console.log(this.admin)
+}
 
   register(name:string, email:string, password:string){
     const authData: User = {name:name, email:email,password:password}

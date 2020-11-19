@@ -1,3 +1,4 @@
+import { MovieService } from './modules/movies/services/movie.service';
 import { NasaService } from './modules/nasa/services/nasa.service';
 import { SharedModule } from './modules/shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +18,8 @@ import { NavbarComponent } from './app-components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './app-components/login/login.component';
 import { RegisterComponent } from './app-components/register/register.component';
+import { AuthService } from './modules/shared/services/auth.service';
+import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,15 @@ import { RegisterComponent } from './app-components/register/register.component'
     HttpClientModule
 
   ],
-  providers: [HttpClientModule, NasaService],
+  providers: [
+    HttpClientModule,
+    NasaService,
+    MovieService,
+    AuthService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
