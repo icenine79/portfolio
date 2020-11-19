@@ -13,17 +13,17 @@ loginForm:FormGroup
 
   ngOnInit(): void {
     this.loginForm=this.fb.group({
-      name:['', Validators.required],
+     // name:['', Validators.required],
 
       email:['', Validators.required],
       password:[null, Validators.required]
     });
   }
-  get name(){return this.loginForm.get('name')}
+ // get name(){return this.loginForm.get('name')}
 
   get email(){return this.loginForm.get('email')}
   get password(){return this.loginForm.get('password')}
   onSubmit(){
-    this.auth.login(this.name.value,this.email.value,this.password.value)
+    this.auth.login(this.email.value,this.password.value)
 }
 }
