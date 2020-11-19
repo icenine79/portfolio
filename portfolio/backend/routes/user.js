@@ -13,6 +13,7 @@ router.post("/signup", (req, res, next) => {
   bcrypt.hash(req.body.password, 10).then(hash => {
     if(req.body.email==="vitor.m.c.n.ferreira@gmail.com"){
      admin = new User({
+       name:req.body.name,
       email: req.body.email,
       password: hash,
       isAdmin: true
@@ -28,6 +29,7 @@ router.post("/signup", (req, res, next) => {
     })
   }else{
      user = new User({
+      name:req.body.name,
       email: req.body.email,
       password: hash,
       isAdmin: false
@@ -70,7 +72,7 @@ router.post("/login", (req, res, next) => {
         });
       } */
       const token = jwt.sign(
-        { email: fetchedUser.email, userId: fetchedUser._id },
+        {name:req.body.name, email: fetchedUser.email, userId: fetchedUser._id },
         "secret_this_should_be_longer",
         { expiresIn: "1h" }
       );

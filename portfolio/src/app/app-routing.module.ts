@@ -1,3 +1,5 @@
+import { RegisterComponent } from './app-components/register/register.component';
+import { LoginComponent } from './app-components/login/login.component';
 import { HomeComponent } from './app-components/home/home.component';
 import { ShellComponent } from './app-components/shell/shell.component';
 
@@ -14,7 +16,10 @@ children: [
   {path: 'nasa', loadChildren: nasa},
 
   {path: '', redirectTo: 'home', pathMatch: 'full'}
-]}
+]},
+{path: 'login', component: LoginComponent},
+{path: 'register', component: RegisterComponent},
+
 ];
 
 @NgModule({

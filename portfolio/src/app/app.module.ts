@@ -15,13 +15,17 @@ import { MoviesModule } from './modules/movies/movies.module';
 import { NasaModule } from './modules/nasa/nasa.module';
 import { NavbarComponent } from './app-components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './app-components/login/login.component';
+import { RegisterComponent } from './app-components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ShellComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
