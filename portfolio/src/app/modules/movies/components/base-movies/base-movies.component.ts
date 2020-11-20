@@ -1,3 +1,4 @@
+import { MovieService } from './../../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./base-movies.component.css']
 })
 export class BaseMoviesComponent implements OnInit {
-
-  constructor() { }
+movies:any[]
+  constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
+
   }
 
+
+  getMovies(title:string){
+    this.movieService.getMovies(title)
+    .subscribe(movie=>{
+      this.movies=Array.of(movie);
+    })
+  }
 }

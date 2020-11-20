@@ -1,0 +1,47 @@
+@font-face {
+  font-family: title;
+  src: url(../../../../../assets/fonts/HelveticaNowText-Bold.eot);
+}
+@font-face{
+font-family:body;
+src:url(../../../../../assets/fonts/HelveticaNowText-Regular.eot);
+}
+@font-face{
+  font-family:mid-title;
+  src:url(../../../../../assets/fonts/HelveticaNowText-Thin.eot);
+  }
+
+.title{
+  font-family: title;
+  color:white;
+  font-size:250px;
+  margin-left:60px;
+
+}
+.body{
+  font-family:body;
+  color:white;
+  font-size:36px;
+  margin-left:60px;
+}
+
+.bg {
+  /* The image used */
+  background-image:url(../../../../../assets/images/movies.png);
+  /* Full height */
+  height: 100vh;
+  /* Center and scale the image nicely */
+   background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #6C5A56;
+  background-blend-mode: multiply;
+}
+.movie-card-wrapper{
+display: inline-block;
+position:relative;
+width:100%;
+height:auto;
+margin-left:-200px;
+}

@@ -1,1 +1,33 @@
-<p>base-movies works!</p>
+<div class="container-fluid bg">
+  <div class="d-flex h-100">
+  <div class="row justify-content-center align-self-center">
+    <div class="col-md-4">
+      <input placeholder="search for movies" class="form-control" #search (keyup.enter)="getMovies(search.value)" type="text">
+      <div *ngIf="search.touched && search.invalid" class="alert alert-danger">
+        <div *ngIf="search.errors.required">Enter a title, please</div>
+      </div>
+      <button style="margin-top:20px;" class="btn btn-success" type="button" (click)="getMovies(search.value)">Get some reels</button>
+    </div>
+      <h1 class="title">_movies</h1>
+
+    </div>
+      <div class="row justify-content-center align-self-center">
+        <div class="movie-card-wrapper" *ngIf="movies">
+          <div class="card" style="width: 18rem;" *ngFor="let m of movies">
+            <img class="card-img-top" src="{{m.Poster}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{m.Title}}</h5>
+              <p class="card-text">Released: {{m.Released}}</p>
+
+              <p class="card-text">Cast: {{m.Actors}}</p>
+              <a [routerLink]="['/movie-detail', m.Title]" class="btn btn-primary">See Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+

@@ -1,0 +1,39 @@
+@font-face {
+  font-family: title;
+  src: url(../../../../../assets/fonts/HelveticaNowText-Bold.eot);
+}
+@font-face{
+font-family:body;
+src:url(../../../../../assets/fonts/HelveticaNowText-Regular.eot);
+}
+@font-face{
+  font-family:mid-title;
+  src:url(../../../../../assets/fonts/HelveticaNowText-Thin.eot);
+  }
+
+.title{
+  font-family: title;
+  color:black;
+  font-size:250px;
+  margin-left:60px;
+
+}
+.body{
+  font-family:body;
+  color:black;
+  font-size:22px;
+  margin-left:60px;
+}
+.title-wrapper{
+  position:absolute;
+  top:50px;
+  left:0;
+}
+
+.title:hover{
+  font-family: title;
+  font-size:250px;
+  color: #fff;
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff2d95, 0 0 30px #ff2d95, 0 0 40px #ff2d95, 0 0 50px #ff2d95, 0 0 75px #ff2d95;
+	letter-spacing: 5px;
+}

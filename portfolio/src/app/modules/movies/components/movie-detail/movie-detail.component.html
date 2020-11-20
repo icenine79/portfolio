@@ -1,0 +1,25 @@
+
+<div class="container" >
+  <div class="row" *ngFor="let m of movie">
+    <div class="col-md-6">
+      <div class="title-wrapper">
+      <h2 class="title">{{m.Title}}</h2>
+    </div>
+      <img src="{{m.Poster}}" alt="{{m.Title}}" class="img-fluid">
+    </div>
+    <div class="col-md-6 justify-content-center align-self-center">
+
+      <p class="body" style="margin-top:150px;">{{m.Plot}}</p>
+    </div>
+    <div class="col-md-6">
+      <h2>Comment this picture!</h2>
+      <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()">
+        <textarea type="text" formControlName="comment" class="form-control"></textarea>
+        <input type="text" placeholder="yor name" formControlName="author" class="form-control">
+        <button class="btn btn-primary" type="submit">Submit comment</button>
+
+
+      </form>
+    </div>
+  </div>
+</div>
