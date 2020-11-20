@@ -2,6 +2,7 @@ import { MovieComment } from './../models/MovieComment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,22 @@ comments:MovieComment[]=[];
     console.log(responseData.message);
   });
   }
-
+getComments(){
+  this.http.get<{message:string, comments:any}>('http://localhost:3000/api/movies')
+  .pipe(map(commentsData=>{
+    return commentsData.comments.map(comment=>{
+      return {
+        id: comment._id,
+        comment: comment.comment,
+        author:comment.author,
+        movie:comment.movie
+      }
+    })
+  }))
+  .subscribe(transformedData=>{
+    this.comments = transformedData;
+    this.updatedComments.next([...this.comments])
+  })
+}
 
 }

@@ -30,7 +30,7 @@ router.get("", (req, res, next) => {
   Movie.find().then(comments => {
     res.status(200).json({
       message: "Comments fetched successfully!",
-      pictures: comments
+      comments: comments
     });
   });
 });
