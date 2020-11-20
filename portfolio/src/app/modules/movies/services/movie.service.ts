@@ -27,7 +27,7 @@ comments:MovieComment[]=[];
     comment.id = id; //transforma o _id mongo no id front end
      this.comments.push(comment);
     this.updatedComments.next([...this.comments])
-    console.log(responseData.message)
+    console.log(responseData.message);
   });
   }
 

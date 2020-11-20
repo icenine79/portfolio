@@ -7,7 +7,8 @@ const router = express.Router();
 router.post("", (req, res, next) => {
   const movie = new Movie({
     comment: req.body.comment,
-    author: req.body.author
+    author: req.body.author,
+    movie:req.body.movie
 
   });
 
