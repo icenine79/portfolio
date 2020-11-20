@@ -15,11 +15,23 @@
       <h2>Comment this picture!</h2>
       <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()">
         <textarea type="text" formControlName="comment" class="form-control"></textarea>
-        <input type="text" placeholder="yor name" formControlName="author" class="form-control">
+        <input type="text" placeholder="your name" formControlName="author" class="form-control">
         <button class="btn btn-primary" type="submit">Submit comment</button>
 
 
       </form>
+    </div>
+    <div class="col-md-6"  *ngIf="finder">
+      <h2>Our user's feedback</h2>
+      <ul class="group-list" *ngFor="let f of finder">
+        <li class="list-group-item" >
+          <span> {{f.comment}}</span>
+
+        </li>
+        <li class="list-group-item">
+          by {{f.author}}
+        </li>
+      </ul>
     </div>
   </div>
 </div>

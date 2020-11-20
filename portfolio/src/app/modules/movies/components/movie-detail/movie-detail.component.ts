@@ -13,6 +13,7 @@ export class MovieDetailComponent implements OnInit {
 movie:any[];
 commentForm:FormGroup;
 title:string;
+finder:any[];
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private movieService: MovieService) { }
 
   ngOnInit(): void {
@@ -41,9 +42,11 @@ title:string;
   }
 
   getComments(){
+    this.movieService.getComments();
     this.movieService.getUpdatedCommentsListner()
     .subscribe(comments=>{
-      console.log(comments)
+      this.finder = comments.filter(m=>m.movie===this.title)
+     console.log(this.finder)
     })
   }
 }
