@@ -1,0 +1,25 @@
+{
+  "products": [
+      {
+        "id":"1",
+        "name":"Playstation 5",
+        "category":"electronics",
+        "description": "gaming console",
+        "imageUrl":"./assets/images/ps5.jpeg"
+      },
+      {
+        "id":"3",
+        "name":"Wipe Out",
+        "category":"games",
+        "description":"First person shooter",
+        "imageUrl":"./assets/images/wipe_out.jpeg"
+      },
+      {
+        "id":"3",
+        "name":"The fourth republic",
+        "category":"books",
+        "description":"A fiction story about the las 45 years in democracy",
+        "imageUrl":"./assets/images/fourth_republic.png"
+      }
+    ]
+  }

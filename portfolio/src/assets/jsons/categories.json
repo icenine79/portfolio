@@ -1,0 +1,16 @@
+{
+  "categories": [
+      {
+        "id":"1",
+        "name":"electronics"
+      },
+      {
+        "id":"2",
+        "name":"games"
+      },
+      {
+        "id":"2",
+        "name":"books"
+      }
+    ]
+  }
