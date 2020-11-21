@@ -11,6 +11,7 @@ import { Routes, RouterModule } from '@angular/router';
 const nasa = () => import('./modules/nasa/nasa.module').then(n=>n.NasaModule)
 const movies = () => import('./modules/movies/movies.module').then(m=>m.MoviesModule);
 const shop = () => import('./modules/shop/shop.module').then(s=>s.ShopModule)
+const admin = () => import('./modules/admin/admin.module').then(a=>a.AdminModule)
 
 const routes: Routes = [
   {path: '', component: ShellComponent,
@@ -19,6 +20,7 @@ children: [
   {path: 'movies', loadChildren: movies},
   {path: 'nasa', loadChildren: nasa},
   {path: 'shop', loadChildren: shop},
+  {path: 'admin', loadChildren: admin},
 
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ]},

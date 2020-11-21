@@ -12,6 +12,10 @@ public isMenuCollapsed = true;
 
   ngOnInit(): void {
   }
+
+  isLoggedIn(){
+    this.auth.isLoggedIn();
+  }
 logOut(){
   this.auth.logOut()
 }

@@ -38,8 +38,11 @@ category:string;
 
   }
 
-  addToCart(product:ShoppingCartItem){
+ /*  addToCart(product:ShoppingCartItem){
     this.shoppingService.addToCart(product)
+  } */
+  addProduct(product:Product){
+    this.shoppingService.addProduct(product)
   }
 
 

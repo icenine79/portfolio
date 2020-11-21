@@ -21,7 +21,6 @@ currentUser: Observable<User>
 constructor(private http:HttpClient, private router: Router, private jwt:JwtHelperService) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
-    console.log(this.isLoggedIn())
   }
 
   get currentUserVaue(){
@@ -67,6 +66,7 @@ constructor(private http:HttpClient, private router: Router, private jwt:JwtHelp
         }, expiresInDuration *1000);
 
         this.fetchedUser = mapedResponse;
+
        localStorage.setItem('currentUser',JSON.stringify(this.fetchedUser));
         this.router.navigate(['/home'])
       }
