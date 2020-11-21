@@ -23,7 +23,7 @@ updatedItems = new Subject<ShoppingCartItem[]>()
     return this.updatedItems.asObservable();
   }
   addToCart(product:ShoppingCartItem){
-    this.http.post<{ message: string, cartId:string, item:any}>('http://localhost:3000/api/shoppingCartItem', product)
+    this.http.post<{ message: string, cartId:string}>('http://localhost:3000/api/shoppingCartItem', product)
     .subscribe(responseData=>{
       const id = responseData.cartId;
       product.id = id;

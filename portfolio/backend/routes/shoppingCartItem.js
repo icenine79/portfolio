@@ -17,9 +17,8 @@ router.post("", (req, res, next) => {
   cart.save().then(createdItemCart => {
     res.status(201).json({
       message: "Product added successfully",
-      cartId: createdItemCart._id,
-      item:createdItemCart
-    });
+      cartId: createdItemCart._id
+´    });
   })
   .catch(err => {
     res.status(500).json({
