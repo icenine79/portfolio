@@ -7,6 +7,7 @@ const userRoutes = require("./routes/user");
 const nasaRoutes = require("./routes/nasa");
 const movieRoutes = require("./routes/movies");
 const shoppingCartItemRoutes = require("./routes/shoppingCartItem");
+const productRoutes = require("./routes/products");
 
 const app = express();
 
@@ -42,6 +43,8 @@ app.use("/api/user", userRoutes);
 app.use("/api/nasa", nasaRoutes);
 app.use("/api/movies", movieRoutes);
 app.use("api/shoppingCartItem", shoppingCartItemRoutes)
+app.use("api/products", productRoutes)
+
 module.exports = app;
 
 

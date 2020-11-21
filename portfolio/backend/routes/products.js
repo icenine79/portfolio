@@ -1,24 +1,26 @@
 const express = require("express");
 
-const ShoppingCartItem = require("../models/shoppingCartItem");
+const Product = require("../models/products");
 
 const router = express.Router();
 
 router.post("", (req, res, next) => {
-  const cart = new ShoppingCartItem({
-    name:req.body.name,
-    imageUrl: req.body.imageUrl,
-    price:req.body.price,
-    quantity: req.body.quantity
+  const movie = new Product({
+    name: req.body.name,
+    category: req.body.category,
+    description:req.body.description,
+    imageUrl:req.body.imageUrl,
+    price:req.body.price
 
   });
 
   console.log(req.body)
-  cart.save().then(createdItemCart => {
+  movie.save().then(createdProduct => {
     res.status(201).json({
       message: "Product added successfully",
-      cartId: createdItemCart._id
-     });
+      productId: createdProduct._id,
+      product:createdProduct
+    });
   })
   .catch(err => {
     res.status(500).json({
@@ -28,10 +30,10 @@ router.post("", (req, res, next) => {
 });
 
 router.get("", (req, res, next) => {
-  ShoppingCartItem.find().then(cartItems => {
+  Movie.find().then(products => {
     res.status(200).json({
-      message: "Items fetched successfully!",
-      cartItems: cartItems
+      message: "Products fetched successfully!",
+      products: products
     });
   });
 });
@@ -54,12 +56,12 @@ router.get("", (req, res, next) => {
 
 
 
-/* router.delete("/:id", (req, res, next) => {
+router.delete("/:id", (req, res, next) => {
   console.log(req.body)
   Movie.deleteOne({ _id: req.params.id }).then(result => {
     console.log(result);
     res.status(200).json({ message: "Comment deleted!" });
   });
-}); */
+});
 
 module.exports = router;

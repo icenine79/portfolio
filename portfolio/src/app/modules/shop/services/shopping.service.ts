@@ -8,8 +8,8 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ShoppingService {
-items: ShoppingCartItem[]=[];
-updatedItems = new Subject<ShoppingCartItem[]>()
+products: Product[]=[];
+updatedProducts = new Subject<Product[]>()
   constructor(private http:HttpClient) { }
 
   getCategories(){
@@ -19,10 +19,10 @@ updatedItems = new Subject<ShoppingCartItem[]>()
     return this.http.get<any>('./assets/jsons/products.json');
   }
 
-  getUpdatedItemsListner(){
-    return this.updatedItems.asObservable();
+  getUpdatedProductsListner(){
+    return this.updatedProducts.asObservable();
   }
-  addToCart(product:ShoppingCartItem){
+  /* addToCart(product:ShoppingCartItem){
     this.http.post<{ message: string, cartId:string}>('http://localhost:3000/api/shoppingCartItem', product)
     .subscribe(responseData=>{
       const id = responseData.cartId;
@@ -31,8 +31,17 @@ updatedItems = new Subject<ShoppingCartItem[]>()
       this.updatedItems.next([...this.items]);
       console.log(responseData.message);
     });
-  }
-
+  } */
+addProduct(product:Product){
+  this.http.post<{message:string, productId:string, product:any}>('http://localhost:3000/api/products', product)
+  .subscribe(responseData=>{
+    const id=responseData.productId;
+    product.id=id;
+    this.products.push(product);
+    this.updatedProducts.next([...this.products])
+    console.log(responseData.message)
+  })
+}
 
 
 }
