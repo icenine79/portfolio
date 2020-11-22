@@ -21,6 +21,7 @@ currentUser: Observable<User>
 constructor(private http:HttpClient, private router: Router, private jwt:JwtHelperService) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
+    console.log(this.isLoggedIn())
   }
 
   get currentUserVaue(){

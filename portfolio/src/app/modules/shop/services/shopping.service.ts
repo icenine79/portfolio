@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { ShoppingCartItem } from './../models/ShoppingCartItem';
 import { Product } from './../models/Product';
 import { HttpClient } from '@angular/common/http';
@@ -16,31 +17,31 @@ updatedProducts = new Subject<Product[]>()
     return this.http.get<any>('./assets/jsons/categories.json');
   }
   getProducts(){
-    return this.http.get<any>('./assets/jsons/products.json');
-  }
+this.http.get<{message:string, products:any}>('http://localhost:3000/api/posts')
+.pipe(map(responseData=>{
+  return responseData.products.map(product=>{
+    return {
+      id: product._id,
+      name: product.name,
+      category: product.category,
+      description: product.description,
+      imageUrl: product.imageUrl,
+      price: product.price
+    }
+  });
+})).subscribe(newResponse=>{
+  this.products=newResponse;
+  this.updatedProducts.next([...this.products]);
+})
+
+}
 
   getUpdatedProductsListner(){
     return this.updatedProducts.asObservable();
   }
-  /* addToCart(product:ShoppingCartItem){
-    this.http.post<{ message: string, cartId:string}>('http://localhost:3000/api/shoppingCartItem', product)
-    .subscribe(responseData=>{
-      const id = responseData.cartId;
-      product.id = id;
-      this.items.push(product);
-      this.updatedItems.next([...this.items]);
-      console.log(responseData.message);
-    });
-  } */
-addProduct(product:Product){
-  this.http.post<{message:string, productId:string, product:any}>('http://localhost:3000/api/products', product)
-  .subscribe(responseData=>{
-    const id=responseData.productId;
-    product.id=id;
-    this.products.push(product);
-    this.updatedProducts.next([...this.products])
-    console.log(responseData.message)
-  })
+
+addToCart(product:Product){
+  console.log(product)
 }
 
 

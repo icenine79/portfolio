@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from './../material/material.module';
 import { NasaRoutingModule } from './nasa-routing.module';
@@ -13,8 +14,7 @@ import { PictureDetailComponent } from './components/picture-detail/picture-deta
   imports: [
     CommonModule,
     NasaRoutingModule,
-    MaterialModule,
-    NgbModule
+    SharedModule
   ]
 })
 export class NasaModule { }

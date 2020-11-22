@@ -1,1 +1,75 @@
-<p>base-admin works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form class="form-signin" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Please add a product</h1>
+
+        <label for="name" class="sr-only">Name</label>
+        <input type="text" formControlName="name" class="form-control" placeholder="Name" required autofocus>
+        <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+          <div *ngIf="name.errors.required">Name is required</div>
+        </div>
+
+        <label for="category" class="sr-only">category</label>
+        <select formControlName="category"
+        (change)="categorySelect($event.target.value)"
+        class="form-control"
+      >
+        <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+      </select>
+      <div *ngIf="category.touched && category.invalid" class="alert alert-danger">
+        <div *ngIf="category.errors.required">category is required</div>
+      </div>
+
+        <label for="description" class="sr-only">description</label>
+        <input type="text" formControlName="description" class="form-control" placeholder="Enter description" required>
+        <div *ngIf="description.touched && description.invalid" class="alert alert-danger">
+          <div *ngIf="description.errors.required">description is required</div>
+        </div>
+
+        <label for="imageUrl" class="sr-only">imageUrl</label>
+        <input type="text" formControlName="imageUrl" class="form-control" placeholder="./assets/images/image-name.extension" required>
+        <div *ngIf="imageUrl.touched && imageUrl.invalid" class="alert alert-danger">
+          <div *ngIf="imageUrl.errors.required">imageUrl is required</div>
+        </div>
+
+        <label for="price" class="sr-only">price</label>
+        <input type="number" formControlName="price" class="form-control" placeholder="Enter price" required>
+        <div *ngIf="price.touched && price.invalid" class="alert alert-danger">
+          <div *ngIf="price.errors.required">price is required</div>
+        </div>
+
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit product</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h2>Products in Data Base</h2>
+  </div>
+</div>
+<div class="gallery-container" >
+  <div class="card-wrapper" *ngFor="let p of products ">
+
+<mat-card class="example-card mat-elevation-z8" >
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title class="text-left">Product name: {{p.name}}</mat-card-title>
+    <mat-card-subtitle class="text-left">Category {{p.category}}</mat-card-subtitle>
+  </mat-card-header>
+  <img class="img-fluid card-img" mat-card-image src="{{p.imageUrl}}" alt="{{p.name}}">
+
+  <mat-card-actions>
+    <a mat-raised-button (click)="deleteProduct(p.id)" color="warn">Delete product</a>
+
+  </mat-card-actions>
+</mat-card>
+</div>
+</div>
+
+
+

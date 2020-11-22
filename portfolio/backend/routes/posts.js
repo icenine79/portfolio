@@ -1,19 +1,24 @@
 const express = require("express");
 
-const Post = require("../models/post");
+const Product = require("../models/post");
 
 const router = express.Router();
 const checkAuth = require('../midleware/check-auth');
 
 router.post("", (req, res, next) => {
-  const post = new Post({
-    title: req.body.title,
-    content: req.body.content
-  });
-  post.save().then(createdPost => {
+  const product = new Product({
+      name: req.body.name,
+      category:req.body.category,
+      description:req.body.description,
+      imageUrl:req.body.imageUrl,
+      price:req.body.price
+
+    });
+    console.log(req.body)
+    product.save().then(createdProduct => {
     res.status(201).json({
-      message: "Post added successfully",
-      postId: createdPost._id
+      message: "Product added successfully",
+      productId: createdProduct._id
     });
   });
 });
@@ -30,10 +35,10 @@ router.put("/:id", checkAuth ,(req, res, next) => {
 });
 
 router.get("", (req, res, next) => {
-  Post.find().then(documents => {
+  Product.find().then(products => {
     res.status(200).json({
-      message: "Posts fetched successfully!",
-      posts: documents
+      message: "Products fetched successfully!",
+      products: products
     });
   });
 });
@@ -49,9 +54,9 @@ router.get("/:id", (req, res, next) => {
 });
 
 router.delete("/:id", (req, res, next) => {
-  Post.deleteOne({ _id: req.params.id }).then(result => {
+  Product.deleteOne({ _id: req.params.id }).then(result => {
     console.log(result);
-    res.status(200).json({ message: "Post deleted!" });
+    res.status(200).json({ message: "Product deleted!" });
   });
 });
 

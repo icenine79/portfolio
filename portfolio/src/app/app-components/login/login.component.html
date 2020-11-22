@@ -1,37 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <div class="wrapper fadeInDown">
-        <div id="formContent"  style="padding-top:20px" >
+      <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
 
-
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-     <!--  <div class="form-group">
-
-        <input placeholder="name" type="text" formControlName="name" class="form-control fadeIn second">
-        <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
-          <div *ngIf="name.errors.required">Name is required</div>
-        </div>
-      </div> -->
-      <div class="form-group">
-
-        <input placeholder="email" type="text" formControlName="email" class="form-control fadeIn third">
+        <label for="email" class="sr-only">Email address</label>
+        <input type="email" formControlName="email" class="form-control" placeholder="Email address" required>
         <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
           <div *ngIf="email.errors.required">Email is required</div>
         </div>
-      </div>
-      <div class="form-group">
 
-        <input placeholder="password" type="text" formControlName="password" class="form-control fadeIn fourth">
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" formControlName="password" class="form-control" placeholder="Enter password" required>
         <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
           <div *ngIf="password.errors.required">Password is required</div>
         </div>
-      </div>
-      <input type="submit" class="fadeIn fourth" value="Log In">
 
-    </form>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
+      </form>
+    </div>
   </div>
-  </div>
 </div>
-</div>
-</div>
+

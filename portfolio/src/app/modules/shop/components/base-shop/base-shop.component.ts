@@ -22,10 +22,13 @@ category:string;
     .subscribe(cat=>{
       this.categories=cat['categories']
     });
-    this.shoppingService.getProducts()
-    .subscribe(product=>{
-      this.products=product['products'];
+    this.shoppingService.getProducts();
+    this.shoppingService.getUpdatedProductsListner()
+    .subscribe(data=>{
+      this.products=data;
+    });
 
+      // tslint:disable-next-line: align
       this.route.queryParamMap
       .subscribe(params=>{
         this.category = params.get('category');
@@ -34,15 +37,10 @@ category:string;
         this.products.filter(p=>p.category===this.category):
         this.products;
       });
-    });
+    }
 
-  }
-
- /*  addToCart(product:ShoppingCartItem){
-    this.shoppingService.addToCart(product)
-  } */
-  addProduct(product:Product){
-    this.shoppingService.addProduct(product)
+  addToCart(product:Product){
+    this.shoppingService.addToCart(product);
   }
 
 

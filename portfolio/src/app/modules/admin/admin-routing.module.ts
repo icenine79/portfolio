@@ -1,4 +1,5 @@
 import { BaseAdminComponent } from './components/base-admin/base-admin.component';
+import { NgModule } from '@angular/core';
 
 import { Routes, RouterModule } from '@angular/router';
 
