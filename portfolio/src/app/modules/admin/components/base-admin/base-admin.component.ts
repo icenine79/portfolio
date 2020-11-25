@@ -1,7 +1,9 @@
+import { AuthService } from './../../../shared/services/auth.service';
 import { Product } from './../../../shop/models/Product';
 import { AdminService } from './../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-base-admin',
@@ -12,7 +14,8 @@ export class BaseAdminComponent implements OnInit {
   products:Product[]=[];
 productForm:FormGroup;
 categories:any[]=['games','electronics','books'];
-  constructor(private adminService: AdminService, private fb:FormBuilder) { }
+users:User[]=[]
+  constructor(private adminService: AdminService, private fb:FormBuilder, private auth:AuthService) { }
 
   ngOnInit(): void {
     this.adminService.getProducts();
@@ -21,14 +24,9 @@ categories:any[]=['games','electronics','books'];
       this.products=products;
       console.log(this.products)
     })
-  // tslint:disable-next-line: align
-  this.productForm = this.fb.group({
-    name:['',Validators.required],
-    category:['', Validators.required],
-    description:['', Validators.required],
-    imageUrl:['./assets/images/', Validators.required],
-    price:[0, Validators.required]
-  });
+    this.productFormBuilder();
+    this.getUsers();
+
 }
 categorySelect(category){
   console.log(category)
@@ -53,4 +51,27 @@ onSubmit(){
 deleteProduct(id:string){
 this.adminService.deleteProduct(id)
 }
+
+
+productFormBuilder(){
+  this.productForm = this.fb.group({
+    name:['',Validators.required],
+    category:['', Validators.required],
+    description:['', Validators.required],
+    imageUrl:['./assets/images/', Validators.required],
+    price:[0, Validators.required]
+  });
+}
+
+
+
+getUsers(){
+  this.auth.getUsers();
+  this.auth.getUpdatedUsersListner()
+  .subscribe(data=>{
+    this.users=data;
+    console.log(this.users)
+  });
+}
+
 }

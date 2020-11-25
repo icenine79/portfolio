@@ -35,7 +35,10 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule,
+ReactiveFormsModule,
+FormsModule,
+MaterialModule,
+NgbModule,
     NasaModule,
     MoviesModule,
     HttpClientModule

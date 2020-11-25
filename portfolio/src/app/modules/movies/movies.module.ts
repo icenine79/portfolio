@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { BaseMoviesComponent } from './components/base-movies/base-movies.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MaterialModule } from '../material/material.module';
 
 
 
@@ -13,7 +15,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MoviesRoutingModule,
-   SharedModule
+    MaterialModule,
+    NgbModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class MoviesModule { }

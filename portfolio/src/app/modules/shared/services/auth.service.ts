@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,9 @@ export class AuthService {
   private admin:any;
   private fetchedUser:User;
   private userObject:any[]=[]
+  private users:User[]=[]
+  updatedUsers = new Subject<User[]>()
+
 private currentUserSubject: BehaviorSubject<User>
 currentUser: Observable<User>
 
@@ -37,6 +41,8 @@ constructor(private http:HttpClient, private router: Router, private jwt:JwtHelp
     const authData: User = {name:name, email:email,password:password}
     this.http.post<{message:string}>('http://localhost:3000/api/user/signup', authData)
     .subscribe(response=>{
+      console.log(response.message)
+
       this.router.navigate(['/login'])
     },error=>{
       console.log(error)
@@ -76,5 +82,27 @@ constructor(private http:HttpClient, private router: Router, private jwt:JwtHelp
 logOut(){
   localStorage.removeItem('currentUser');
   this.router.navigate(['/login'])
+}
+
+getUpdatedUsersListner(){
+  return this.updatedUsers.asObservable();
+}
+
+getUsers(){
+this.http.get<{message:string, users:any}>('http://localhost:3000/api/user')
+.pipe(map(res=>{
+  return res.users.map(user=>{
+    return {
+      id:user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      token: user.token,
+    }
+  })
+})).subscribe(newData=>{
+  this.users=newData;
+  this.updatedUsers.next([...this.users]);
+});
 }
 }

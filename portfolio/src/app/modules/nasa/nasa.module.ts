@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './../shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from './../material/material.module';
@@ -14,7 +15,10 @@ import { PictureDetailComponent } from './components/picture-detail/picture-deta
   imports: [
     CommonModule,
     NasaRoutingModule,
-    SharedModule
+    MaterialModule,
+    NgbModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class NasaModule { }

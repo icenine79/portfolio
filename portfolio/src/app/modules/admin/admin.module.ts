@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BaseAdminComponent } from './components/base-admin/base-admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -13,7 +14,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    MaterialModule,
+    NgbModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class AdminModule { }
