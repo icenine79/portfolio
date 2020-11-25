@@ -52,6 +52,16 @@ user
         });
       });
   });
+  router.get("", (req, res,send)=>{
+    console.log(req.body)
+    User.find().then(users=>{
+      res.status(200).json({
+        message:"users fetched successfully!",
+        users: users
+      })
+    });
+    });
+
 
 router.post("/login", (req, res, next) => {
   let fetchedUser;
