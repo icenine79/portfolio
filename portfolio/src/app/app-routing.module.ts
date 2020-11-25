@@ -1,3 +1,4 @@
+import { AuthGuardService } from './modules/shared/guards/auth-guard.service';
 import { ShopModule } from './modules/shop/shop.module';
 import { RegisterComponent } from './app-components/register/register.component';
 import { LoginComponent } from './app-components/login/login.component';
@@ -17,10 +18,10 @@ const routes: Routes = [
   {path: '', component: ShellComponent,
 children: [
   {path: 'home', component: HomeComponent},
-  {path: 'movies', loadChildren: movies},
-  {path: 'nasa', loadChildren: nasa},
-  {path: 'shop', loadChildren: shop},
-  {path: 'admin', loadChildren: admin},
+  {path: 'movies', loadChildren: movies, canActivate: [AuthGuardService]},
+  {path: 'nasa', loadChildren: nasa, canActivate: [AuthGuardService]},
+  {path: 'shop', loadChildren: shop, canActivate: [AuthGuardService]},
+  {path: 'admin', loadChildren: admin, canActivate: [AuthGuardService]},
 
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ]},

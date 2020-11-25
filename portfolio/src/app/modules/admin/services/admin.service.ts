@@ -50,7 +50,7 @@ export class AdminService {
 
   }
   deleteProduct(id:string){
-    this.http.delete<{message:string}>('http://localhost:3000/api/posts'+id)
+    this.http.delete<{message:string}>('http://localhost:3000/api/posts/'+id)
     .subscribe(()=>{
       const updatedProducts = this.products.filter(p=>p.id!==id);
       this.products = updatedProducts;

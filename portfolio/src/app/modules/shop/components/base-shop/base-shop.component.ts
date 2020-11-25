@@ -1,4 +1,3 @@
-import { ShoppingCartItem } from './../../models/ShoppingCartItem';
 import { Categories } from './../../models/Categories';
 import { Product } from './../../models/Product';
 import { ShoppingService } from './../../services/shopping.service';
@@ -40,7 +39,8 @@ category:string;
     }
 
   addToCart(product:Product){
-    this.shoppingService.addToCart(product);
+
+
   }
 
 

@@ -81,7 +81,7 @@ constructor(private http:HttpClient, private router: Router, private jwt:JwtHelp
 }
 logOut(){
   localStorage.removeItem('currentUser');
-  this.router.navigate(['/login'])
+  this.router.navigate(['/home'])
 }
 
 getUpdatedUsersListner(){
