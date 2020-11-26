@@ -57,4 +57,9 @@ export class AdminService {
       this.updatedProducts.next([...this.products]);
     });
   }
+
+deleteUser(id:string){
+  return this.http.delete<{message:string}>('http://localhost:3000/api/user/'+id)
+}
+
 }

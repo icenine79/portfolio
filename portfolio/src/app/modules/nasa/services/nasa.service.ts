@@ -81,36 +81,3 @@ saveImage(pictureObject:DayPicture){
 }
 }
 
-
-
-
-
-//ROVERS
-/*
-public getDataImage(id: number){
-return this.http.get<any>(environment.baseUrl+environment.apiKey)
-.pipe(map(res=>{
-  let response = Array.of(res)
-  return response.filter(x=>x.id===id)
-}))
-}
-
-
-getPicByCamera(camera: string){
-  return this.http.get<any>(environment.camUrl+camera+environment.apiKey)
-  .pipe(map(result=>{
-    console.log(result)
-    let res: any[]=result['photos']
-  return res;
-  }))
-}
-//ALbums, NASA missions
-
-getNasaAlbum(album:string){
-return this.http.get('https://images-api.nasa.gov/album/Artemis')
-.pipe(map(res=>{
-  let x = res['collection']['items']
-  return x
-}));
-} */
-

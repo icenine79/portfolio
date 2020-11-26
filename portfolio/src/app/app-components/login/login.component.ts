@@ -1,3 +1,4 @@
+import { LocalService } from './../../modules/shared/services/local.service';
 import { AuthService } from './../../modules/shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -9,7 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 loginForm:FormGroup
-  constructor(private fb:FormBuilder, private auth:AuthService) { }
+error:boolean=false;
+  constructor(private fb:FormBuilder, private auth:AuthService, private localService:LocalService) { }
 
   ngOnInit(): void {
     this.loginForm=this.fb.group({
@@ -18,7 +20,14 @@ loginForm:FormGroup
       email:['', Validators.required],
       password:[null, Validators.required]
     });
-  }
+    this.localService.currentMessage.subscribe(message=>{
+      if(message==="Auth failed"){
+        this.error=true
+      }else{
+        this.error=false;
+      }
+    })
+       }
  // get name(){return this.loginForm.get('name')}
 
   get email(){return this.loginForm.get('email')}

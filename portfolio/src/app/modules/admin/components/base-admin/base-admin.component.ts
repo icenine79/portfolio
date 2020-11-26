@@ -15,6 +15,7 @@ export class BaseAdminComponent implements OnInit {
 productForm:FormGroup;
 categories:any[]=['games','electronics','books'];
 users:User[]=[]
+filteredUsers:User[]=[]
   constructor(private adminService: AdminService, private fb:FormBuilder, private auth:AuthService) { }
 
   ngOnInit(): void {
@@ -26,6 +27,14 @@ users:User[]=[]
     })
     this.productFormBuilder();
     this.getUsers();
+
+
+}
+receivedId(id){
+  this.adminService.deleteUser(id)
+  .subscribe(()=>{
+    this.users =this.users.filter(u=>u.id!==id)
+  })
 
 }
 categorySelect(category){
@@ -48,9 +57,7 @@ onSubmit(){
   this.adminService.addProduct(product)
 
 }
-deleteProduct(id:string){
-this.adminService.deleteProduct(id)
-}
+
 
 
 productFormBuilder(){
@@ -69,7 +76,7 @@ getUsers(){
   this.auth.getUsers();
   this.auth.getUpdatedUsersListner()
   .subscribe(data=>{
-    this.users=data;
+    this.users= this.filteredUsers= data;
     console.log(this.users)
   });
 }

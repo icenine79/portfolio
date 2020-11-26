@@ -1,5 +1,10 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <app-users-table [users]="users" (change)="receivedId($event)"></app-users-table>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-6 offset-md-3">
       <form class="form-signin" [formGroup]="productForm" (ngSubmit)="onSubmit()">
         <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">

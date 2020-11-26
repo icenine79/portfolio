@@ -1,5 +1,4 @@
 import { AuthGuardService } from './modules/shared/guards/auth-guard.service';
-import { ShopModule } from './modules/shop/shop.module';
 import { RegisterComponent } from './app-components/register/register.component';
 import { LoginComponent } from './app-components/login/login.component';
 import { HomeComponent } from './app-components/home/home.component';
@@ -19,9 +18,9 @@ const routes: Routes = [
 children: [
   {path: 'home', component: HomeComponent},
   {path: 'movies', loadChildren: movies, canActivate: [AuthGuardService]},
-  {path: 'nasa', loadChildren: nasa, canActivate: [AuthGuardService]},
+  {path: 'nasa', loadChildren: nasa/* , canActivate: [AuthGuardService] */},
   {path: 'shop', loadChildren: shop, canActivate: [AuthGuardService]},
-  {path: 'admin', loadChildren: admin, canActivate: [AuthGuardService]},
+  {path: 'admin', loadChildren: admin/* , canActivate: [AuthGuardService] */},
 
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ]},

@@ -6,11 +6,12 @@ import { BaseAdminComponent } from './components/base-admin/base-admin.component
 import { AdminRoutingModule } from './admin-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UsersTableComponent } from './components/users-table/users-table.component';
 
 
 
 @NgModule({
-  declarations: [BaseAdminComponent],
+  declarations: [BaseAdminComponent, UsersTableComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

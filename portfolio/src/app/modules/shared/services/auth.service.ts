@@ -1,3 +1,4 @@
+import { LocalService } from './local.service';
 import { User } from './../../../models/User';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -16,13 +17,18 @@ export class AuthService {
   private admin:any;
   private fetchedUser:User;
   private userObject:any[]=[]
-  private users:User[]=[]
+  private users:User[]=[];
+  loginError:boolean=false;
   updatedUsers = new Subject<User[]>()
 
 private currentUserSubject: BehaviorSubject<User>
 currentUser: Observable<User>
 
-constructor(private http:HttpClient, private router: Router, private jwt:JwtHelperService) {
+constructor(
+  private http:HttpClient,
+  private router: Router,
+  private jwt:JwtHelperService,
+  private localService:LocalService) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
     console.log(this.isLoggedIn())
@@ -41,11 +47,13 @@ constructor(private http:HttpClient, private router: Router, private jwt:JwtHelp
     const authData: User = {name:name, email:email,password:password}
     this.http.post<{message:string}>('http://localhost:3000/api/user/signup', authData)
     .subscribe(response=>{
-      console.log(response.message)
+      console.log(response.message);
 
       this.router.navigate(['/login'])
     },error=>{
-      console.log(error)
+      console.log(error);
+      this.localService.changeMessage('Registration failed')
+
     })
   }
 
@@ -77,6 +85,9 @@ constructor(private http:HttpClient, private router: Router, private jwt:JwtHelp
        localStorage.setItem('currentUser',JSON.stringify(this.fetchedUser));
         this.router.navigate(['/home'])
       }
+  },error=>{
+    this.localService.changeMessage('Auth failed')
+
   })
 }
 logOut(){
