@@ -24,12 +24,16 @@ router.post("", (req, res, next) => {
 });
 
 router.put("/:id", checkAuth ,(req, res, next) => {
-  const post = new Post({
-    _id: req.body.id,
-    title: req.body.title,
-    content: req.body.content
+  const product = new Product({
+      _id: req.body.id,
+      name: req.body.name,
+      category:req.body.category,
+      description:req.body.description,
+      imageUrl:req.body.imageUrl,
+      price:req.body.price
+
   });
-  Post.updateOne({ _id: req.params.id }, post).then(result => {
+  Post.updateOne({ _id: req.params.id }, product).then(result => {
     res.status(200).json({ message: "Update successful!" });
   });
 });

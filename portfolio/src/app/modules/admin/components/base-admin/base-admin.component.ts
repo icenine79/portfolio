@@ -4,6 +4,7 @@ import { AdminService } from './../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/User';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-base-admin',
@@ -16,7 +17,10 @@ productForm:FormGroup;
 categories:any[]=['games','electronics','books'];
 users:User[]=[]
 filteredUsers:User[]=[]
-  constructor(private adminService: AdminService, private fb:FormBuilder, private auth:AuthService) { }
+private mode = 'create';
+private productId:string;
+product:Product;
+  constructor(private adminService: AdminService, private fb:FormBuilder, private route:ActivatedRoute, private auth:AuthService) { }
 
   ngOnInit(): void {
     this.adminService.getProducts();
@@ -27,6 +31,16 @@ filteredUsers:User[]=[]
     })
     this.productFormBuilder();
     this.getUsers();
+    this.route.paramMap.subscribe((paramMap:ParamMap)=>{
+      if(paramMap.has('productId')){
+        this.mode="edit";
+        this.productId = paramMap.get('productId');
+        this.product = this.adminService.getProduct(this.productId)
+      }else{
+        this.mode="create";
+        this.productId=null;
+      }
+    })
 
 
 }
@@ -70,6 +84,13 @@ productFormBuilder(){
   });
 }
 
+deleteProduct(id:string){
+  this.adminService.deleteProduct(id)
+}
+
+editProduct(id:string, params:any){
+
+}
 
 
 getUsers(){

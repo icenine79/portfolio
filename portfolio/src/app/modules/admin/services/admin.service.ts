@@ -29,7 +29,10 @@ export class AdminService {
       console.log(responseData.message)
     })
   }
-
+getProduct(id:string){
+  console.log(id)
+  return {...this.products.find(p=>p.id===id)}
+}
   getProducts(){
     this.http.get<{message:string, products:any}>('http://localhost:3000/api/posts')
     .pipe(map(productsData=>{

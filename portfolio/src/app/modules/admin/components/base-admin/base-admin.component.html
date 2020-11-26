@@ -70,6 +70,7 @@
 
   <mat-card-actions>
     <a mat-raised-button (click)="deleteProduct(p.id)" color="warn">Delete product</a>
+    <a mat-raised-button [routerLink]="['/edit',p.id]" color="warn">Edit product</a>
 
   </mat-card-actions>
 </mat-card>

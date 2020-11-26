@@ -21,7 +21,7 @@ import { LoginComponent } from './app-components/login/login.component';
 import { RegisterComponent } from './app-components/register/register.component';
 import { AuthService } from './modules/shared/services/auth.service';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
-
+//import {errorInterceptor} from './modules/shared/interceptors/error.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,10 +35,10 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-ReactiveFormsModule,
-FormsModule,
-MaterialModule,
-NgbModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MaterialModule,
+    NgbModule,
     NasaModule,
     MoviesModule,
     HttpClientModule
@@ -46,6 +46,7 @@ NgbModule,
   ],
   providers: [
     HttpClientModule,
+    //errorInterceptor,
     NasaService,
     MovieService,
     AuthService,
