@@ -48,8 +48,7 @@ constructor(
     this.http.post<{message:string}>('http://localhost:3000/api/user/signup', authData)
     .subscribe(response=>{
       console.log(response.message);
-
-      this.router.navigate(['/login'])
+      this.localService.changeMessage('User created')
     },error=>{
       console.log(error);
       this.localService.changeMessage('Registration failed')

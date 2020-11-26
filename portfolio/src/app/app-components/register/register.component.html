@@ -32,6 +32,7 @@
         <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
       </form>
       <div *ngIf="error" class="alert alert-danger">User already exists</div>
+      <div *ngIf="successMessage" class="alert alert-success">User registrated successfully. Now redirecting to log in page</div>
 
     </div>
   </div>

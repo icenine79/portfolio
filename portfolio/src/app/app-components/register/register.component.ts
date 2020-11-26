@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LocalService } from './../../modules/shared/services/local.service';
 import { AuthService } from './../../modules/shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +12,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 registerForm:FormGroup;
 error:boolean=false;
-  constructor(private fb:FormBuilder, private auth:AuthService, private localService:LocalService) { }
+successMessage:boolean=false;
+
+  constructor(private fb:FormBuilder, private auth:AuthService, private localService:LocalService, private router:Router) { }
 
   ngOnInit(): void {
   this.registerForm = this.fb.group({
@@ -23,8 +26,18 @@ error:boolean=false;
     this.localService.currentMessage
     .subscribe(message=>{
       console.log(message)
-      if(message==="Registration failed")
-      this.error=true
+      if(message==="Registration failed"){
+        this.error=true
+
+      }else if(message==='User created'){
+        this.error=false
+        this.successMessage=true;
+
+        setTimeout(()=>{                           //<<<---using ()=> syntax
+          this.router.navigate(['/login'])
+
+        }, 4000);
+      }
     })
   }
 
