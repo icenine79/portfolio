@@ -32,7 +32,7 @@ export class BaseNasaComponent implements OnInit{
     this.nasaService.saveImage(picture)
 
   }
-  deleteImage(picture:any){
+  receivedImage(picture:any){
     this.nasaService.deleteImage(picture)
   }
 }

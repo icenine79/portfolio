@@ -7,11 +7,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BaseNasaComponent } from './components/base-nasa/base-nasa.component';
 import { PictureDetailComponent } from './components/picture-detail/picture-detail.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 
 
 @NgModule({
-  declarations: [BaseNasaComponent, PictureDetailComponent],
+  declarations: [BaseNasaComponent, PictureDetailComponent, GalleryComponent],
   imports: [
     CommonModule,
     NasaRoutingModule,

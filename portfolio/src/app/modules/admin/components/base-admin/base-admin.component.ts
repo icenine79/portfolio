@@ -51,6 +51,14 @@ receivedId(id){
   })
 
 }
+
+receivedProduct(product){
+  this.adminService.deleteProduct(product)
+
+}
+
+
+
 categorySelect(category){
   console.log(category)
 }
@@ -84,9 +92,7 @@ productFormBuilder(){
   });
 }
 
-deleteProduct(id:string){
-  this.adminService.deleteProduct(id)
-}
+
 
 editProduct(id:string, params:any){
 

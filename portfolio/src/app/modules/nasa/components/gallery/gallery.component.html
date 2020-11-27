@@ -1,0 +1,17 @@
+<div class="card-wrapper" *ngFor="let g of gallery">
+
+  <mat-card class="example-card mat-elevation-z8" >
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title class="text-left">{{g.title}}</mat-card-title>
+      <mat-card-subtitle class="text-left">{{g.date}}</mat-card-subtitle>
+    </mat-card-header>
+    <img class="img-fluid card-img" mat-card-image src="{{g.hdurl}}" alt="{{g.title}}">
+
+    <mat-card-actions>
+      <a mat-raised-button [routerLink]="['/picture-detail', g.id]" color="primary">See Details</a>
+    <button mat-raised-button color="warn" (click)="deleteImage(g.id)">Delete</button>
+
+    </mat-card-actions>
+  </mat-card>
+</div>
