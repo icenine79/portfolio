@@ -42,8 +42,6 @@ product:any;
         this.productId=null;
       }
     })
-
-
 }
 receivedId(id){
   this.adminService.deleteUser(id)

@@ -55,6 +55,16 @@ constructor(
     })
   }
 
+isAdmin():boolean{
+  this.getUsers();
+  this.getUpdatedUsersListner()
+  .subscribe(data=>{
+    this.users= data;
+
+  });
+  return (this.users.filter(admin=>admin['isAdmin']))?true:false;
+}
+
   login( email:string, password:string){
     const authData: any = {email: email, password: password};
 

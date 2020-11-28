@@ -16,6 +16,14 @@ public isMenuCollapsed = true;
   isLoggedIn():boolean{
     return this.auth.isLoggedIn();
   }
+
+  isAdmin():boolean{
+
+    return (this.auth.isAdmin())?true:false
+  }
+
+
+
 logOut(){
   this.auth.logOut()
 }
