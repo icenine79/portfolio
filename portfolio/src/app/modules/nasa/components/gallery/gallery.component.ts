@@ -8,12 +8,16 @@ import { DayPicture } from '../../models/DayPicture';
 })
 export class GalleryComponent implements OnInit {
 @Input()   gallery:DayPicture[];
-@Output() change=new EventEmitter()
+@Output() change=new EventEmitter();
+@Input()   loading: boolean = true
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  onLoad() {
+    this.loading = false;
+}
 
   deleteImage(image){
     this.change.emit(image)

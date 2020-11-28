@@ -6,8 +6,10 @@
       <mat-card-title class="text-left">{{g.title}}</mat-card-title>
       <mat-card-subtitle class="text-left">{{g.date}}</mat-card-subtitle>
     </mat-card-header>
-    <img class="img-fluid card-img" mat-card-image src="{{g.hdurl}}" alt="{{g.title}}">
 
+    <img  *ngIf="loading" src="../../../../../assets/images//loading.gif" alt="loading" />
+
+    <img [hidden]="loading" (load)="onLoad()" class="img-fluid card-img" mat-card-image src="{{g.hdurl}}" alt="{{g.title}}">
     <mat-card-actions>
       <a mat-raised-button [routerLink]="['/picture-detail', g.id]" color="primary">See Details</a>
     <button mat-raised-button color="warn" (click)="deleteImage(g.id)">Delete</button>

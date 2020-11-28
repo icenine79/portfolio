@@ -12,6 +12,8 @@ export class BaseNasaComponent implements OnInit{
   dayPicture: any
   gallery:DayPicture[];
   error:boolean=false;
+  loading: boolean = true
+
   constructor(private nasaService:NasaService) { }
 
   ngOnInit(): void {
@@ -32,6 +34,9 @@ export class BaseNasaComponent implements OnInit{
     this.nasaService.saveImage(picture)
 
   }
+  onLoad() {
+    this.loading = false;
+}
   receivedImage(picture:any){
     this.nasaService.deleteImage(picture)
   }

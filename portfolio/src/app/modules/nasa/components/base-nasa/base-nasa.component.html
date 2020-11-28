@@ -11,7 +11,9 @@
           <mat-card-title>{{d.title}}</mat-card-title>
           <mat-card-subtitle>{{d.date}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="{{d.hdurl}}" alt="{{d.title}}">
+        <img *ngIf="loading" src="../../../../../assets/images//loading.gif" alt="loading" />
+
+        <img [hidden]="loading" (load)="onLoad()" mat-card-image src="{{d.hdurl}}" alt="{{d.title}}">
         <mat-card-content>
           <p>
             {{d.explanation}}
@@ -32,6 +34,6 @@
     </div>
   </div>
   <div class="gallery-container" >
-    <app-gallery [gallery]="gallery" (change)="receivedImage($event)"></app-gallery>
+    <app-gallery [loading]='loading' [gallery]="gallery" (change)="receivedImage($event)"></app-gallery>
 
   </div>
