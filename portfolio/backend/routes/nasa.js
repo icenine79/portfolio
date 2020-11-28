@@ -6,21 +6,7 @@ const router = express.Router();
 
 
 
-router.get("/:id", (req, res, next) => {
 
-
-  Nasa.findById(req.params.id).then(cart => {
-    if (cart) {
-      res.status(200).json({
-        message:"Cart fetched successfully",
-        cart: cart,
-        id: cart.id
-      });
-    } else {
-      res.status(404).json({ message: "Cart not found!" });
-    }
-  });
-});
 
 
 

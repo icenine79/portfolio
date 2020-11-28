@@ -7,16 +7,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-@Input() products: Product[]=[]
-@Output() change= new EventEmitter()
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  deleteProduct(product){
-    this.change.emit(product)
-  }
+
 
 
 }

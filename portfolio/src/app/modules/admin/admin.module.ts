@@ -8,12 +8,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersTableComponent } from './components/users-table/users-table.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { TestComponent } from './components/test/test.component';
 
 
 
 @NgModule({
-  declarations: [BaseAdminComponent, UsersTableComponent, ProductListComponent, TestComponent],
+  declarations: [BaseAdminComponent, UsersTableComponent, ProductListComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

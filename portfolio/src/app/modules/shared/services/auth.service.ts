@@ -16,7 +16,7 @@ export class AuthService {
   private admin:any;
   private fetchedUser:User;
   private userObject:any[]=[]
-  private users:User[]=[];
+  users:User[]=[];
   loginError:boolean=false;
   updatedUsers = new Subject<User[]>()
 
@@ -113,5 +113,8 @@ this.http.get<{message:string, users:any}>('http://localhost:3000/api/user')
   this.users=newData;
   this.updatedUsers.next([...this.users]);
 });
+}
+getUser(id:string){
+  return {...this.users.filter(user=>user.id===id)};
 }
 }

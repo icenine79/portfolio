@@ -48,11 +48,14 @@ router.get("", (req, res, next) => {
 });
 
 router.get("/:id", (req, res, next) => {
-  Post.findById(req.params.id).then(post => {
-    if (post) {
-      res.status(200).json(post);
+  Product.findById(req.params.id).then(product => {
+    if (product) {
+      res.status(200).json({
+        message: "Product found",
+        id: product._id
+      });
     } else {
-      res.status(404).json({ message: "Post not found!" });
+      res.status(404).json({ message: "Product not found!" });
     }
   });
 });

@@ -1,3 +1,4 @@
+import { ProductResolverService } from './services/resolver/product-resolver.service';
 import { BaseAdminComponent } from './components/base-admin/base-admin.component';
 import { NgModule } from '@angular/core';
 
@@ -6,7 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path:'', component:BaseAdminComponent},
-  {path: 'edit/:productId', component:BaseAdminComponent}
+  {path: 'edit/:id', component:BaseAdminComponent/* , resolve: {edit:ProductResolverService} */}
 ];
 
 @NgModule({

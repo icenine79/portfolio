@@ -19,7 +19,7 @@ users:User[]=[]
 filteredUsers:User[]=[]
 private mode = 'create';
 private productId:string;
-product:Product;
+product:any;
   constructor(private adminService: AdminService, private fb:FormBuilder, private route:ActivatedRoute, private auth:AuthService) { }
 
   ngOnInit(): void {
@@ -31,11 +31,12 @@ product:Product;
     })
     this.productFormBuilder();
     this.getUsers();
+
     this.route.paramMap.subscribe((paramMap:ParamMap)=>{
       if(paramMap.has('productId')){
         this.mode="edit";
         this.productId = paramMap.get('productId');
-        this.product = this.adminService.getProduct(this.productId)
+        this.product = this.adminService.getProductById(this.productId)
       }else{
         this.mode="create";
         this.productId=null;
@@ -108,4 +109,7 @@ getUsers(){
   });
 }
 
+deleteProduct(id:string){
+  this.adminService.deleteProduct(id)
+}
 }
