@@ -2,11 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-const postsRoutes = require("./routes/posts");
+const adminRoutes = require("./routes/admin");
 const userRoutes = require("./routes/user");
 const nasaRoutes = require("./routes/nasa");
 const movieRoutes = require("./routes/movies");
-const shoppingCartItemRoutes = require("./routes/shoppingCartItem");
 
 const app = express();
 
@@ -37,11 +36,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/posts", postsRoutes);
+app.use("/api/admin", adminRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/nasa", nasaRoutes);
 app.use("/api/movies", movieRoutes);
-app.use("api/shoppingCartItem", shoppingCartItemRoutes)
 
 module.exports = app;
 

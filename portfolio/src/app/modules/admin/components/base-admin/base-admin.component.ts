@@ -32,7 +32,8 @@ product:any;
     this.productFormBuilder();
     this.getUsers();
 
-    this.route.paramMap.subscribe((paramMap:ParamMap)=>{
+     // tslint:disable-next-line: align
+     this.route.paramMap.subscribe((paramMap:ParamMap)=>{
       if(paramMap.has('productId')){
         this.mode="edit";
         this.productId = paramMap.get('productId');

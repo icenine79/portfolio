@@ -20,7 +20,7 @@ export class AdminService {
   addProduct(product:any){
     console.log(product)
 
-    this.http.post<{message:string, productId:string, product:any}>('http://localhost:3000/api/posts', product)
+    this.http.post<{message:string, productId:string, product:any}>('http://localhost:3000/api/admin', product)
     .subscribe(responseData=>{
       const id=responseData.productId;
       product.id=id;
@@ -30,10 +30,10 @@ export class AdminService {
     })
   }
   getProductById(id:string):Observable<any>{
-    return this.http.get<{id:string, message:string}>('http://localhost:3000/api/posts/' + id);
+    return this.http.get<{id:string, message:string}>('http://localhost:3000/api/admin/' + id);
   }
   getProducts(){
-    this.http.get<{message:string, products:any}>('http://localhost:3000/api/posts')
+    this.http.get<{message:string, products:any}>('http://localhost:3000/api/admin')
     .pipe(map(productsData=>{
       return productsData.products.map(product=>{
         return{
@@ -52,7 +52,7 @@ export class AdminService {
 
   }
   deleteProduct(id:string){
-    this.http.delete<{message:string}>('http://localhost:3000/api/posts/'+id)
+    this.http.delete<{message:string}>('http://localhost:3000/api/admin/'+id)
     .subscribe(()=>{
       const updatedProducts = this.products.filter(p=>p.id!==id);
       this.products = updatedProducts;

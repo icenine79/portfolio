@@ -4,12 +4,6 @@ const Nasa = require("../models/nasa");
 
 const router = express.Router();
 
-
-
-
-
-
-
 //NASA
 router.post("", (req, res, next) => {
   const nasa = new Nasa({
@@ -23,7 +17,6 @@ router.post("", (req, res, next) => {
 
   });
 
-  console.log(req.body)
   nasa.save().then(createdPicture => {
     res.status(201).json({
       message: "Picture added successfully",
@@ -47,7 +40,6 @@ router.get("", (req, res, next) => {
 });
 
 router.get("/:id", (req, res, next) => {
-  console.log(req.params.id)
 
   Nasa.findById(req.params.id).then(picture => {
     if (picture) {
@@ -65,9 +57,7 @@ router.get("/:id", (req, res, next) => {
 
 
 router.delete("/:id", (req, res, next) => {
-  console.log(req.body)
   Nasa.deleteOne({ _id: req.params.id }).then(result => {
-    console.log(result);
     res.status(200).json({ message: "Image deleted!" });
   });
 });

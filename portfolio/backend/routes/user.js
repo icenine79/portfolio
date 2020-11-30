@@ -57,7 +57,6 @@ router.post("/signup", (req, res, next) => {
     })
 });
 router.get("", (req, res, send) => {
-  console.log(req.body)
   User.find().then(users => {
     res.status(200).json({
       message: "users fetched successfully!",
@@ -111,11 +110,9 @@ router.post("/login", (req, res, next) => {
 });
 
 router.delete("/:id", (req, res, next) => {
-  console.log(req.body)
   User.deleteOne({
     _id: req.params.id
   }).then(result => {
-    console.log(result);
     res.status(200).json({
       message: "User deleted!"
     });

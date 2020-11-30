@@ -10,7 +10,7 @@ export class GalleryComponent implements OnInit {
 @Input()   gallery:DayPicture[];
 @Output() change=new EventEmitter();
 @Input()   loading: boolean = true
-
+more:boolean;
   constructor() { }
 
   ngOnInit(): void {

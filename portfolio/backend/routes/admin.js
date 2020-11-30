@@ -1,9 +1,8 @@
 const express = require("express");
 
-const Product = require("../models/post");
+const Product = require("../models/admin");
 
 const router = express.Router();
-const checkAuth = require('../midleware/check-auth');
 
 router.post("", (req, res, next) => {
   const product = new Product({
@@ -14,7 +13,6 @@ router.post("", (req, res, next) => {
       price:req.body.price
 
     });
-    console.log(req.body)
     product.save().then(createdProduct => {
     res.status(201).json({
       message: "Product added successfully",
@@ -23,7 +21,7 @@ router.post("", (req, res, next) => {
   });
 });
 
-router.put("/:id", checkAuth ,(req, res, next) => {
+router.put("/:id" ,(req, res, next) => {
   const product = new Product({
       _id: req.body.id,
       name: req.body.name,
@@ -33,7 +31,7 @@ router.put("/:id", checkAuth ,(req, res, next) => {
       price:req.body.price
 
   });
-  Post.updateOne({ _id: req.params.id }, product).then(result => {
+  Product.updateOne({ _id: req.params.id }, product).then(result => {
     res.status(200).json({ message: "Update successful!" });
   });
 });
@@ -62,7 +60,6 @@ router.get("/:id", (req, res, next) => {
 
 router.delete("/:id", (req, res, next) => {
   Product.deleteOne({ _id: req.params.id }).then(result => {
-    console.log(result);
     res.status(200).json({ message: "Product deleted!" });
   });
 });
