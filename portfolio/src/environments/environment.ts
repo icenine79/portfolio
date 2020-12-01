@@ -10,6 +10,9 @@ export const environment = {
   dayPicture: 'https://api.nasa.gov/planetary/apod?api_key=7gRavjUItGAktX8CxJbXcTJcsTX7hDmIjdt6hMrH'
 };
 
+
+
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

@@ -1,4 +1,3 @@
-import { ShoppingService } from './modules/shop/services/shopping.service';
 import { MovieService } from './modules/movies/services/movie.service';
 import { NasaService } from './modules/nasa/services/nasa.service';
 import { SharedModule } from './modules/shared/shared.module';
@@ -30,7 +29,7 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
     NavbarComponent,
     LoginComponent,
     RegisterComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -52,7 +51,6 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
     AuthService,
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
-    ShoppingService
 
   ],
   bootstrap: [AppComponent]

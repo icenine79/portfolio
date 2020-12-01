@@ -2,14 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Product } from '../../shop/models/Product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
-  products: Product[]=[];
-  updatedProducts = new Subject<Product[]>()
+  products: any[]=[];
+  updatedProducts = new Subject<any[]>()
     constructor(private http:HttpClient) { }
 
 
@@ -30,7 +29,7 @@ export class AdminService {
     })
   }
   getProductById(id:string):Observable<any>{
-    return this.http.get<{id:string, message:string}>('http://localhost:3000/api/admin/' + id);
+    return
   }
   getProducts(){
     this.http.get<{message:string, products:any}>('http://localhost:3000/api/admin')

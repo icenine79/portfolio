@@ -1,4 +1,3 @@
-import { Product } from './../../../shop/models/Product';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({

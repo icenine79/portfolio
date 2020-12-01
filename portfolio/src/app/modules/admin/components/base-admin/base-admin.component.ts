@@ -1,5 +1,4 @@
 import { AuthService } from './../../../shared/services/auth.service';
-import { Product } from './../../../shop/models/Product';
 import { AdminService } from './../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -12,7 +11,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./base-admin.component.css']
 })
 export class BaseAdminComponent implements OnInit {
-  products:Product[]=[];
+  products:any[]=[];
 productForm:FormGroup;
 categories:any[]=['games','electronics','books'];
 users:User[]=[]
@@ -100,10 +99,10 @@ editProduct(id:string, params:any){
 
 
 getUsers(){
-  this.auth.getUsers();
+ // this.auth.getUsers();
   this.auth.getUpdatedUsersListner()
   .subscribe(data=>{
-    this.users= this.filteredUsers= data;
+    this.users=  data;
     console.log(this.users)
   });
 }
