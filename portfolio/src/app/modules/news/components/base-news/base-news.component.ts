@@ -12,7 +12,9 @@ export class BaseNewsComponent implements OnInit {
 countries:Country[]=[]
 breakingNews:News[]=[]
 newsBySource:any[]=[]
-source:any[]
+source:any[];
+selectedImage:News[]=[];
+detailFlag:boolean=false;
   constructor(private newsService: NewsService) {}
 
   ngOnInit(): void {
@@ -41,5 +43,9 @@ this.newsService.getNewsByCountry(country)
     .subscribe(src=>{
       this.source=src
     })
+  }
+  getDetail(image){
+    this.selectedImage.push(image);
+    this.detailFlag=true;
   }
 }

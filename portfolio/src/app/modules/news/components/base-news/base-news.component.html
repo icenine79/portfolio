@@ -1,6 +1,10 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
+  <app-news-detail [selectedImage]="selectedImage"></app-news-detail>
+<div class="news-wrapper" *ngIf="!detailFlag">
+
+  <div class="row" >
+
+    <div class="col-md-6 offset-md-3" >
       <label>Select a Country for breaking headlines</label>
       <select
         (change)="searchNewsByCountry($event.target.value)"
@@ -16,12 +20,25 @@
    <option *ngFor="let c of source" [value]="c.id">{{ c.name }}</option>
   </select>
   </div>
-
     </div>
     <div class="row" *ngIf="newsBySource">
       <div class="col-md-4" *ngFor="let n of newsBySource">
-        <h2>{{n.title}}</h2>
-        <img src="{{n.urlToImage}}" class="img-fluid">
+        <mat-card class="example-card mat-elevation-z8">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{n.title}}</mat-card-title>
+            <mat-card-subtitle>Date: {{n.publishedAt}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image class="img-fluid" src="{{n.urlToImage}}" alt="{{n.title}}">
+          <mat-card-content>
+            <p>
+              {{n.description}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button class="btn-block" (click)="getDetail(n)" mat-raised-button color="primary">Details</button>
+          </mat-card-actions>
+        </mat-card>
       </div>
     </div>
   <div class="row" *ngIf="breakingNews">
@@ -30,15 +47,8 @@
       <img src="{{n.urlToImage}}" class="img-fluid">
     </div>
   </div>
+
+
 </div>
-<!--  author: string
-content:string
-description: string;
-publishedAt: string
-source: {
-  id: null,
-  name: string
-};
-title: string;
-url: string;
-urlToImage: string; -->
+</div>
+

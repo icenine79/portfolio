@@ -1,0 +1,11 @@
+.example-card{
+  margin-left:4px;
+  margin-top:20px;
+}
+
+.example-card img{
+  width:35vh;
+  height:20vh;
+  margin:0 auto;
+  display: block;
+}

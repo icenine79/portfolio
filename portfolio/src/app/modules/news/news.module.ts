@@ -5,11 +5,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BaseNewsComponent } from './components/base-news/base-news.component';
 import { NewsRoutingModule } from './news-routing.module';
+import { NewsDetailComponent } from './components/news-detail/news-detail.component';
 
 
 
 @NgModule({
-  declarations: [BaseNewsComponent],
+  declarations: [BaseNewsComponent, NewsDetailComponent],
   imports: [
     CommonModule,
     NewsRoutingModule,

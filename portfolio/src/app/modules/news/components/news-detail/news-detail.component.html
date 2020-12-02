@@ -1,0 +1,23 @@
+
+<div class="row">
+  <div class="col-md-6 offset-md-3" *ngIf="selectedImage">
+    <mat-card class="example-card mat-elevation-z8" *ngFor="let s of selectedImage">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{s.publishedAt}}</mat-card-title>
+        <mat-card-subtitle>{{s.title}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{s.urlToImage}}" alt="{{s.title}}">
+      <mat-card-content>
+        <p>
+          {{s.content}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        Source: {{s.source.name}}
+        <button mat-raised-button color="warn" (click)="goBack()" >Home</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+</div>
