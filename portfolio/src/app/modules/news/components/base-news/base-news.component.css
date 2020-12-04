@@ -9,3 +9,61 @@
   margin:0 auto;
   display: block;
 }
+
+.bg {
+  /* The image used */
+  background-image:url(../../../../../assets/images/world-news.jpg);
+  /* Full height */
+  height: 100vh;
+  /* Center and scale the image nicely */
+   background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #6C5A56;
+  background-blend-mode: multiply;
+}
+@font-face {
+  font-family: title;
+  src: url(../../../../../assets/fonts/HelveticaNowText-Bold.eot);
+}
+@font-face{
+font-family:body;
+src:url(../../../../../assets/fonts/HelveticaNowText-Regular.eot);
+}
+@font-face{
+  font-family:mid-title;
+  src:url(../../../../../assets/fonts/HelveticaNowText-Thin.eot);
+  }
+
+.title{
+  font-family: title;
+  color:black;
+  font-size:250px;
+  margin-left:60px;
+
+}
+.mini-title{
+  font-family: title;
+  color:black;
+
+
+}
+.body{
+  font-family:body;
+  color:white;
+  font-size:30px;
+}
+.title-wrapper{
+  position:absolute;
+  top:50px;
+  left:0;
+}
+
+.title:hover{
+  font-family: title;
+  font-size:250px;
+  color: #fff;
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff2d95, 0 0 30px #ff2d95, 0 0 40px #ff2d95, 0 0 50px #ff2d95, 0 0 75px #ff2d95;
+	letter-spacing: 5px;
+}

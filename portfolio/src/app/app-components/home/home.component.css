@@ -29,6 +29,11 @@ src:url(../../../assets/fonts/HelveticaNowText-Regular.eot);
   margin-left:60px;
 
 }
+.newsletter{
+  font-family:body;
+  color:white;
+  font-size:5px;
+}
 .body{
   font-family:body;
   color:white;
@@ -150,4 +155,11 @@ src:url(../../../assets/fonts/HelveticaNowText-Regular.eot);
 height: 60px;
 background-color: #3d3d3d;
 width:50%
+}
+.headlines{
+  position: absolute;
+top: 463px;
+left: 0;
+color: white;
+font-weight: bold;
 }

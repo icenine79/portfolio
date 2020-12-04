@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container-fluid bg ">
   <app-news-detail [selectedImage]="selectedImage"></app-news-detail>
 <div class="news-wrapper" *ngIf="!detailFlag">
 
-  <div class="row" >
+  <div class="row  " >
 
     <div class="col-md-6 offset-md-3" >
-      <label>Select a Country for breaking headlines</label>
+      <label class="body" style="margin-top:40px;">Select a Country for breaking headlines</label>
       <select
         (change)="searchNewsByCountry($event.target.value)"
         class="form-control">
@@ -13,7 +13,7 @@
       </select>
    </div>
    <div class="col-md-6 offset-md-3">
-    <label>Search news by Source</label>
+    <label class="body" style="margin-top:40px;">Search news by Source</label>
      <select
     (change)="getNewsBySource($event.target.value)"
     class="form-control">

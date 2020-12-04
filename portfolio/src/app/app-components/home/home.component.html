@@ -33,7 +33,7 @@
     <a routerLink="/nasa"class="col-md-6">
       <img class="img-fluid" src="../../../assets/images/tarantula.jpg">
       <h1 class="img-letters" style="position: absolute;top:50px;">
-        <span class="number">01 </span>Discover Nasa's pictures <span class="arrow"><i class="fas fa-arrow-right"></i></span></h1>
+        <span class="number">01 </span>Explore Nasa's pictures <span class="arrow"><i class="fas fa-arrow-right"></i></span></h1>
 
       </a>
     <div class="col-md-6">
@@ -43,8 +43,8 @@
         <img class="img-fluid" src="../../../assets/images/movies.png">
       </a>
         <div  class="col" style="margin-top:50px;margin-left:-15px;">
-        <h1 class="img-letters" style="position: absolute;top:500px;left:0;color:black">
-          <span class="number">03</span> Read the World headlines<span class="arrow">
+        <h1 class="img-letters" style="position: absolute;top:463px;left:0;color:white; font-weight: bold;">
+          <span class="number">03</span> World's headlines<span class="arrow">
             <i class="fas fa-arrow-right"></i></span></h1>
             <a routerLink="/news">
         <img class="img-fluid" src="../../../assets/images/news.jpg">
@@ -63,16 +63,17 @@
   <div class="row mid-top">
      <div class="col-md-6 offset-md-3 top">
       <form [formGroup]="newsletter" (ngSubmit)="onSubmit()">
-        <input id="n" class="form-control" formControlName="email">
+        <input placeholder="enter your email address"id="n" class="form-control" formControlName="email">
       </form>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
-
+    <div class="col-md-6 offset-md-4 top">
+      <p class="body">Subscribe for updates</p>
     </div>
   </div>
 </div>
+
 </footer>
 
 
