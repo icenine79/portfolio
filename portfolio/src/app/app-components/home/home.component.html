@@ -53,28 +53,42 @@
     </div>
   </div>
 </div>
-<footer>
+<footer style="padding-bottom:40px;">
   <div class="container-fluid foot">
     <div class="row mid-top">
     <div class="col-md-12 top">
       <h1 class="mid-title text-center" style="color:white;font-weight: normal;">Stay in touch </h1>
     </div>
   </div>
-  <div class="row mid-top">
-     <div class="col-md-6 offset-md-3 top">
-      <form [formGroup]="newsletter" (ngSubmit)="onSubmit()">
-        <input placeholder="enter your email address"id="n" class="form-control" formControlName="email">
-      </form>
-    </div>
-  </div>
   <div class="row">
-    <div class="col-md-6 offset-md-4 top">
-      <p class="body">Subscribe for updates</p>
+     <div class="col-md-6 offset-md-3 top">
+      <mat-expansion-panel hideToggle style="margin-top:50px; margin-bottom:50px">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h2 class="mini-title text-center">
+              Stay in touch, send a message!
+            </h2>
+           </mat-panel-title>
+        </mat-expansion-panel-header>
+        <form [formGroup]="newsletter" (ngSubmit)="onSubmit()">
+          <textarea placeholder="your message" type="text" formControlName="message" class="form-control"></textarea>
+          <div *ngIf="message.touched && message.invalid" class="alert alert-danger">
+            <div *ngIf="message.errors.required">Message is required</div>
+          </div>
+          <input type="email" placeholder="your email" formControlName="email" class="form-control">
+          <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+            <div *ngIf="email.errors.required">Email is required</div>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit comment</button>
+        </form>
+      </mat-expansion-panel>
     </div>
   </div>
 </div>
+<div class="row">
 
-</footer>
+</div>
+</footer >
 
 
 

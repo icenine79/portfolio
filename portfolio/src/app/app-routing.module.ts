@@ -1,3 +1,4 @@
+import { AdminGuardService } from './modules/shared/guards/admin-guard.service';
 import { AuthGuardService } from './modules/shared/guards/auth-guard.service';
 import { RegisterComponent } from './app-components/register/register.component';
 import { LoginComponent } from './app-components/login/login.component';
@@ -18,9 +19,9 @@ const routes: Routes = [
 children: [
   {path: 'home', component: HomeComponent},
   {path: 'movies', loadChildren: movies, canActivate: [AuthGuardService]},
-  {path: 'nasa', loadChildren: nasa/* , canActivate: [AuthGuardService] */},
-  {path: 'admin', loadChildren: admin/* , canActivate: [AuthGuardService] */},
-  {path: 'news', loadChildren: news/* , canActivate: [AuthGuardService] */},
+  {path: 'nasa', loadChildren: nasa , canActivate: [AuthGuardService] },
+  {path: 'admin', loadChildren: admin, canActivate: [AdminGuardService] },
+  {path: 'news', loadChildren: news, canActivate: [AuthGuardService] },
 
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ]},

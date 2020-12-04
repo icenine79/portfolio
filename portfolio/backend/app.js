@@ -6,6 +6,7 @@ const adminRoutes = require("./routes/admin");
 const userRoutes = require("./routes/user");
 const nasaRoutes = require("./routes/nasa");
 const movieRoutes = require("./routes/movies");
+const messagesRoutes = require("./routes/messages");
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/nasa", nasaRoutes);
 app.use("/api/movies", movieRoutes);
+app.use("/api/messages", messagesRoutes);
 
 module.exports = app;
 

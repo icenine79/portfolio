@@ -163,3 +163,7 @@ left: 0;
 color: white;
 font-weight: bold;
 }
+footer{
+  background-color: black;
+    height: 80vh;
+}

@@ -1,3 +1,5 @@
+import { Messages } from './../../../../models/Messages';
+import { HomeService } from './../../../../app-components/services/home.service';
 import { AuthService } from './../../../shared/services/auth.service';
 import { AdminService } from './../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,6 +14,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class BaseAdminComponent implements OnInit {
   products:any[]=[];
+  messages:Messages[]=[]
 productForm:FormGroup;
 categories:any[]=['games','electronics','books'];
 users:User[]=[]
@@ -19,7 +22,12 @@ filteredUsers:User[]=[]
 private mode = 'create';
 private productId:string;
 product:any;
-  constructor(private adminService: AdminService, private fb:FormBuilder, private route:ActivatedRoute, private auth:AuthService) { }
+  constructor(
+    private adminService: AdminService,
+    private fb:FormBuilder,
+    private route:ActivatedRoute,
+    private auth:AuthService,
+    private homeService: HomeService) { }
 
   ngOnInit(): void {
     this.adminService.getProducts();
@@ -30,6 +38,11 @@ product:any;
     })
     this.productFormBuilder();
     this.getUsers();
+    this.homeService.getMessages();
+    this.homeService.getUpdatedMessagesListner()
+    .subscribe(messages=>{
+      this.messages=messages;
+    })
 
      // tslint:disable-next-line: align
      this.route.paramMap.subscribe((paramMap:ParamMap)=>{

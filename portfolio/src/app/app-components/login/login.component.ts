@@ -33,6 +33,7 @@ error:boolean=false;
   get email(){return this.loginForm.get('email')}
   get password(){return this.loginForm.get('password')}
   onSubmit(){
+    this.loginForm.reset();
     this.auth.login(this.email.value,this.password.value)
 }
 }

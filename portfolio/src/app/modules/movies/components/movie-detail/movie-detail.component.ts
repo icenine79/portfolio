@@ -41,6 +41,7 @@ panelOpenState = false;
   get comment(){return this.commentForm.get('comment')}
   get author(){return this.commentForm.get('author')}
   onCommentSubmit(){
+    this.commentForm.reset();
     let commentObj:MovieComment = {
       id:null,
       comment:this.comment.value,

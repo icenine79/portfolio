@@ -34,6 +34,10 @@ router.get("", (req, res, next) => {
   });
 });
 
+
+
+
+
 router.delete("/:id", (req, res, next) => {
   Movie.deleteOne({ _id: req.params.id }).then(result => {
     res.status(200).json({ message: "Comment deleted!" });
