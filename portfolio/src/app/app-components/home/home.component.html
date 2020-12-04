@@ -1,8 +1,17 @@
 <div class="container-fluid bg">
+  <div @fade class="angular">
+    <img src="../../../assets/images/angular.png" class="img-fluid">
+
+  </div>
+  <div @fadeNode class="node">
+    <img src="../../../assets/images/node.png" class="img-fluid">
+
+  </div>
+
   <div class="d-flex h-100">
   <div class="row justify-content-center align-self-center">
     <div class="col-md-12">
-      <h1 @fade class="title">_portfolio </h1>
+      <h1  class="title">_portfolio </h1>
     </div>
 
   </div>
@@ -24,7 +33,7 @@
     <a routerLink="/nasa"class="col-md-6">
       <img class="img-fluid" src="../../../assets/images/tarantula.jpg">
       <h1 class="img-letters" style="position: absolute;top:50px;">
-        <span class="number">01 </span>Explore Nasa's api <span class="arrow"><i class="fas fa-arrow-right"></i></span></h1>
+        <span class="number">01 </span>Discover Nasa's pictures <span class="arrow"><i class="fas fa-arrow-right"></i></span></h1>
 
       </a>
     <div class="col-md-6">
@@ -34,8 +43,8 @@
         <img class="img-fluid" src="../../../assets/images/movies.png">
       </a>
         <div  class="col" style="margin-top:50px;margin-left:-15px;">
-        <h1 class="img-letters" style="position: absolute;top:500px;left:0;">
-          <span class="number">03</span>World headlines<span class="arrow">
+        <h1 class="img-letters" style="position: absolute;top:500px;left:0;color:black">
+          <span class="number">03</span> Read the World headlines<span class="arrow">
             <i class="fas fa-arrow-right"></i></span></h1>
             <a routerLink="/news">
         <img class="img-fluid" src="../../../assets/images/news.jpg">
@@ -44,6 +53,27 @@
     </div>
   </div>
 </div>
+<footer>
+  <div class="container-fluid foot">
+    <div class="row mid-top">
+    <div class="col-md-12 top">
+      <h1 class="mid-title text-center" style="color:white;font-weight: normal;">Stay in touch </h1>
+    </div>
+  </div>
+  <div class="row mid-top">
+     <div class="col-md-6 offset-md-3 top">
+      <form [formGroup]="newsletter" (ngSubmit)="onSubmit()">
+        <input id="n" class="form-control" formControlName="email">
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+
+    </div>
+  </div>
+</div>
+</footer>
 
 
 

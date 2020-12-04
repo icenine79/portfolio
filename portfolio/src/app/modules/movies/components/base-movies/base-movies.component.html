@@ -13,16 +13,23 @@
     </div>
       <div class="row justify-content-center align-self-center">
         <div class="movie-card-wrapper" *ngIf="movies">
-          <div class="card" style="width: 18rem;" *ngFor="let m of movies">
-            <img class="card-img-top" src="{{m.Poster}}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">{{m.Title}}</h5>
-              <p class="card-text">Released: {{m.Released}}</p>
+          <mat-card style="margin-top:50px;" class="example-card mat-elevation-z8" *ngFor="let m of movies">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{m.Title}}</mat-card-title>
+              <mat-card-subtitle>Release date: {{m.Released}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{m.Poster}}" alt="{{m.Title}}">
+            <mat-card-content>
+              <p>
+                Cast: {{m.Actors}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+               <a mat-raised-button color="warn" [routerLink]="['/movie-detail', m.Title]" class="btn btn-primary">See Details</a>
 
-              <p class="card-text">Cast: {{m.Actors}}</p>
-              <a [routerLink]="['/movie-detail', m.Title]" class="btn btn-primary">See Details</a>
-            </div>
-          </div>
+            </mat-card-actions>
+          </mat-card>
         </div>
       </div>
     </div>

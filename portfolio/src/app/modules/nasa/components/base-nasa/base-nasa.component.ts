@@ -29,10 +29,10 @@ export class BaseNasaComponent implements OnInit{
       this.gallery= response;
       console.log(this.gallery)
     });
+
   }
   saveImage(picture:any){
     this.nasaService.saveImage(picture)
-
   }
   onLoad() {
     this.loading = false;
@@ -40,4 +40,6 @@ export class BaseNasaComponent implements OnInit{
   receivedImage(picture:any){
     this.nasaService.deleteImage(picture)
   }
+
+
 }

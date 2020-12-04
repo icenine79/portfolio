@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
+      <mat-card class="mat-elevation-z8">
       <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -33,7 +34,7 @@
       </form>
       <div *ngIf="error" class="alert alert-danger">User already exists</div>
       <div *ngIf="successMessage" class="alert alert-success">User registrated successfully. Now redirecting to log in page</div>
-
+    </mat-card>
     </div>
   </div>
 </div>

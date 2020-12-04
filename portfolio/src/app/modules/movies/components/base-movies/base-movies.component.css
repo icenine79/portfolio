@@ -27,7 +27,7 @@ src:url(../../../../../assets/fonts/HelveticaNowText-Regular.eot);
 
 .bg {
   /* The image used */
-  background-image:url(../../../../../assets/images/movies.png);
+  background-image:url(../../../../../assets/images/movies-back.jpg);
   /* Full height */
   height: 100vh;
   /* Center and scale the image nicely */
@@ -41,7 +41,7 @@ src:url(../../../../../assets/fonts/HelveticaNowText-Regular.eot);
 .movie-card-wrapper{
 display: inline-block;
 position:relative;
-width:100%;
+width:40vh;
 height:auto;
 margin-left:-200px;
 }

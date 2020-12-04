@@ -14,12 +14,20 @@ movie:any[];
 commentForm:FormGroup;
 title:string;
 finder:any[];
+series:boolean=false;
+seasons:any;
+seasonsGroup:number[]=[]
+episodes:any[];
+panelOpenState = false;
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private movieService: MovieService) { }
 
   ngOnInit(): void {
     this.route.data.subscribe(movie=>{
       let aux:any[]=Array.of(movie)
+      console.log(aux)
       this.movie = aux.map(d=>d['detail']);
+      this.seasons = this.movie.map(s=>s['totalSeasons'])
+      console.log(+this.seasons)
       let temp =this.movie.map(title=>title['Title']);
       this.title = temp[0];
     })
@@ -28,6 +36,7 @@ finder:any[];
       author:['', Validators.required]
     });
     this.getComments();
+    this.populateDropDown()
   }
   get comment(){return this.commentForm.get('comment')}
   get author(){return this.commentForm.get('author')}
@@ -48,5 +57,20 @@ finder:any[];
       this.finder = comments.filter(m=>m.movie===this.title)
      console.log(this.finder)
     })
+  }
+  searchEpisode(season:number){
+    let s = season.toString()
+    this.movieService.getEpisode(this.title,s)
+    .subscribe(episode=>{
+      this.episodes= episode['Episodes'];
+    })
+  }
+  populateDropDown(){
+    if(this.seasons!=null || this.seasons!=undefined){
+      for(let i=0; i<this.seasons;i++){
+        this.seasonsGroup.push(i)
+      }
+    }
+    console.log(this.seasonsGroup)
   }
 }

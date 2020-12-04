@@ -11,6 +11,17 @@ src:url(../../../assets/fonts/HelveticaNowText-Regular.eot);
   src:url(../../../assets/fonts/HelveticaNowText-Thin.eot);
   }
 
+
+.angular{
+  position:absolute;
+  top:50%;
+  left:40px;
+}
+.node{
+  position:absolute;
+  top:50%;
+  left:120px;
+}
 .title{
   font-family: title;
   color:white;
@@ -51,7 +62,7 @@ src:url(../../../assets/fonts/HelveticaNowText-Regular.eot);
 
 .bg {
   /* The image used */
-  background-image:url(../../../assets/images/planet-code.jpg);
+  background-image:url(../../../assets/images/code.png);
   /* Full height */
   height: 100vh;
   /* Center and scale the image nicely */
@@ -128,4 +139,15 @@ src:url(../../../assets/fonts/HelveticaNowText-Regular.eot);
 
 .mid-bottom{
   margin-bottom:100px;
+}
+
+.foot{
+  background-color:black;
+  color:white;
+}
+#n{
+  margin-left: 200px;
+height: 60px;
+background-color: #3d3d3d;
+width:50%
 }

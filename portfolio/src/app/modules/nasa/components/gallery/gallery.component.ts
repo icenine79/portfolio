@@ -19,6 +19,8 @@ more:boolean;
     this.loading = false;
 }
 
+
+
   deleteImage(image){
     this.change.emit(image)
   }

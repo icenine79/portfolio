@@ -10,3 +10,13 @@ export const Fader = {
     ])
   ]
 };
+export const FaderNode = {
+  animations: [
+    trigger("fadeNode", [
+      transition("void => *", [
+        style({ opacity: 0 }),
+        animate(4000, style({ opacity: 1 }))
+      ])
+    ])
+  ]
+};

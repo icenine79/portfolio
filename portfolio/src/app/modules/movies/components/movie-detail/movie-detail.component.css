@@ -18,11 +18,16 @@ src:url(../../../../../assets/fonts/HelveticaNowText-Regular.eot);
   margin-left:60px;
 
 }
+.mini-title{
+  font-family: title;
+  color:black;
+
+
+}
 .body{
   font-family:body;
   color:black;
-  font-size:22px;
-  margin-left:60px;
+  font-size:20px;
 }
 .title-wrapper{
   position:absolute;

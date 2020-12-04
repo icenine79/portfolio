@@ -17,6 +17,20 @@ comments:MovieComment[]=[];
      return this.http.get<any>("https://www.omdbapi.com/?t=" + name + "&plot=full&apikey=87c31e60")
 
   }
+
+  getEpisode(name: string, season: string):Observable<any[]> {
+
+    return this.http.get<any[]>(
+      "https://www.omdbapi.com/?t=" +
+        name +
+        "&Season=" +
+        season  +
+        "&apikey=87c31e60"
+    );
+  }
+
+
+
   getUpdatedCommentsListner(){
     return this.updatedComments.asObservable();
   }
