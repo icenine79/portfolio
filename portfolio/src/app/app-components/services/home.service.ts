@@ -26,13 +26,13 @@ private updatedMessages = new Subject<Messages[]>()
     })
   }
   getMessages(){
-    this.http.get<{message:string, msgs:any}>('http://localhost:3000/api/messages')
+    this.http.get<{message:string, messageObj:any}>('http://localhost:3000/api/messages')
     .pipe(map(res=>{
-      return res.msgs.map(ms=>{
+      return res.messageObj.map(msgs=>{
         return {
-          id: ms._id,
-          message:ms.message,
-          email:ms.email
+          id: msgs._id,
+          message:msgs.message,
+          email:msgs.email
         }
       })
     })).subscribe(transformedData=>{

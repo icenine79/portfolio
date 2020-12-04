@@ -28,7 +28,7 @@ router.get("", (req, res, next) => {
   Message.find().then(messages => {
     res.status(200).json({
       message: "Comments fetched successfully!",
-      msgs: messages
+      messageObj: messages
     });
   });
 });

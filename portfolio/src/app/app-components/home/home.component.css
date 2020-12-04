@@ -166,4 +166,5 @@ font-weight: bold;
 footer{
   background-color: black;
     height: 80vh;
+    padding-bottom:2px;
 }
