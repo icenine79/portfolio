@@ -8,4 +8,14 @@
 
 #It has heavy use of Rxjs Librarty: Observables, Subjects, Behavioral Subjects, Event Emittes, etc
 
-"Uses also Atribute and Structural Directives, a local Service, Inout and Output bindings for reusable components
+#"Uses also Atribute and Structural Directives, a local Service, Inout and Output bindings for reusable components
+
+ # nested routing is another feature, as the app has a shell components for bootstrap, therefore all modules are childmodules
+ 
+ #Bugs an todos:
+ 
+ Mobile CSS and features
+ some repeated functions in several services. A generic data Service is in need
+ 
+ 
+ 
