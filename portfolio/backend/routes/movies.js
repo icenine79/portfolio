@@ -5,12 +5,14 @@ const Movie = require("../models/movies");
 const router = express.Router();
 
 router.post("", (req, res, next) => {
+  console.log(req.body)
   const movie = new Movie({
     comment: req.body.comment,
     author: req.body.author,
     movie:req.body.movie
 
   });
+  console.log(req.body)
 
   movie.save().then(createdComment => {
     res.status(201).json({

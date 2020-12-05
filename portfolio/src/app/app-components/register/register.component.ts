@@ -47,7 +47,8 @@ get password(){return this.registerForm.get('password')}
 
 
 onSubmit(){
-  this.registerForm.reset();
   this.auth.register(this.name.value,this.email.value,this.password.value);
+  this.registerForm.reset();
+
 }
 }

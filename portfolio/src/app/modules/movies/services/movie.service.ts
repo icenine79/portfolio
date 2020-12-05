@@ -36,6 +36,7 @@ comments:MovieComment[]=[];
   }
 
   saveComment(comment:MovieComment){
+    console.log(comment)
     this.http.post<{ message: string, commentId:string}>('http://localhost:3000/api/movies', comment)
   .subscribe(responseData=>{
     const id = responseData.commentId;
