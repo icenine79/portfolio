@@ -12,6 +12,7 @@ router.post("", (req, res, next) => {
   });
 
   message.save().then(createdMessage => {
+    console.log(req.body)
     res.status(201).json({
       message: "Message added successfully",
       messageId: createdMessage._id

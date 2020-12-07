@@ -3,15 +3,7 @@
 <div class="news-wrapper" *ngIf="!detailFlag">
 
   <div class="row  " >
-    <div id="jsTest"></div>
-    <div class="col-md-6 offset-md-3" >
-      <label class="body" style="margin-top:40px;">Select a Country for breaking headlines</label>
-      <select
-        (change)="searchNewsByCountry($event.target.value)"
-        class="form-control">
-       <option *ngFor="let c of countries" [value]="c.code">{{ c.name }}</option>
-      </select>
-   </div>
+
    <div class="col-md-6 offset-md-3">
     <label class="body" style="margin-top:40px;">Search news by Source</label>
      <select

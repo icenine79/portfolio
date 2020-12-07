@@ -9,8 +9,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./base-news.component.css']
 })
 export class BaseNewsComponent implements OnInit {
-countries:Country[]=[]
-breakingNews:News[]=[]
 newsBySource:any[]=[]
 source:any[];
 selectedImage:News[]=[];
@@ -24,11 +22,7 @@ detailFlag:boolean=false;
     });
     this.getSource();
   }
-  searchNewsByCountry(country:string){
-this.newsService.getNewsByCountry(country)
-.subscribe((news: News[])=>{
-  this.breakingNews=news;
-})
+
   }
   getNewsBySource(source){
     this.newsService.getNewsBySource(source)

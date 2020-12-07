@@ -26,13 +26,14 @@ export class HomeComponent implements OnInit {
   get message(){return this.newsletter.get('message')}
 
   onSubmit(){
-    this.newsletter.reset();
     let messageObj:Messages={
       id:null,
       email:this.email.value,
       message:this.message.value
     }
     this.homeService.saveMessage(messageObj)
+    this.newsletter.reset();
+
   }
 
 

@@ -11,13 +11,7 @@ export class NewsService {
 
   constructor(private http:HttpClient) { }
 
-getNewsByCountry(country:string){
-  return this.http.get('https://newsapi.org/v2/top-headlines?country='+country+'&apiKey=228d79e8e9024e758276b2656c22d928')
-  .pipe(map(news=>{
-    let x = news['articles']
-    return x;
-  }))
-}
+
 
 getNewsBySource(source:string):Observable<any[]>{
   return this.http.get<any[]>('http://newsapi.org/v2/top-headlines?sources=' +source+'&apiKey=228d79e8e9024e758276b2656c22d928')
