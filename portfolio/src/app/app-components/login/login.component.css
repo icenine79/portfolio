@@ -257,3 +257,12 @@ input[type=text]:placeholder {
 #icon {
   width:60%;
 }
+@font-face{
+  font-family:body;
+  src:url(../../../assets/fonts/HelveticaNowText-Regular.eot);
+  }
+.body{
+  font-family: body;
+  font-size:20px;
+  margin-top:10px;
+}

@@ -16,23 +16,23 @@
 
 
       <li class="nav-item">
-         <a class="nav-link" style="cursor:pointer;"  (click)="logOut()" >Log Out</a>
+         <a class="nav-link" style="cursor:pointer;" *ngIf="!isLoggedIn()"  (click)="logOut()" >Log Out</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link"  routerLink="/register"  (click)="isMenuCollapsed = true">Register</a>
+        <a class="nav-link"  routerLink="/register" *ngIf="isLoggedIn()" (click)="isMenuCollapsed = true">Register</a>
       </li>
 
         <li class="nav-item">
-       <a class="nav-link"  (click)="isMenuCollapsed = true">Login</a>
+       <a class="nav-link" routerLink="/login" *ngIf="isLoggedIn()" (click)="isMenuCollapsed = true">Login</a>
      </li>
      <li class="nav-item">
-       <a class="nav-link"   routerLink="/movies"  (click)="isMenuCollapsed = true">Movies</a>
+       <a class="nav-link"   routerLink="/movies"  *ngIf="!isLoggedIn()"  (click)="isMenuCollapsed = true">Movies</a>
      </li>
      <li class="nav-item">
-      <a class="nav-link"  routerLink="/nasa"  (click)="isMenuCollapsed = true">Nasa</a>
+      <a class="nav-link"  routerLink="/nasa"  *ngIf="!isLoggedIn()" (click)="isMenuCollapsed = true">Nasa</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link"  routerLink="/news"  (click)="isMenuCollapsed = true">News</a>
+      <a class="nav-link"  routerLink="/news"  *ngIf="!isLoggedIn()" (click)="isMenuCollapsed = true">News</a>
     </li>
     </ul>
   </div>

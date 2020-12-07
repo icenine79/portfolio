@@ -55,7 +55,7 @@ getImages(){
   this.http.get<{message:string, pictures: any}>('http://localhost:3000/api/nasa')
   .pipe(map((picsData)=>{
    return picsData.pictures.map(picture=>{
-     return {
+     return { //transforma o objecto que vem da BD. O_id passa a ser id, para depois ser possível apagar o object
        id: picture._id,
        date: picture.date,
        explanation: picture.explanation,
@@ -73,7 +73,7 @@ saveImage(pictureObject:DayPicture){
   this.http.post<{ message: string, picId:string}>('http://localhost:3000/api/nasa', pictureObject)
 .subscribe(responseData=>{
   const id = responseData.picId;
-  pictureObject.id = id; //transforma o _id mongo no id front end
+  pictureObject.id = id; //transforma o _id mongo no id front end para poder efectuar delete
   this.images.push(pictureObject);
   this.updatedImages.next([...this.images])
   console.log(responseData.message)
