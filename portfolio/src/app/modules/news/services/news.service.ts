@@ -22,10 +22,6 @@ getNewsBySource(source:string):Observable<any[]>{
   }))
 }
 
-getCountries(): Observable<Country[]>{
-  return this.http.get<Country[]>('assets/jsons/countries.json');
-}
-
 getSource(){
 return this.http.get('https://newsapi.org/v2/sources?apiKey=228d79e8e9024e758276b2656c22d928')
 .pipe(map(news=>{

@@ -16,14 +16,11 @@ detailFlag:boolean=false;
   constructor(private newsService: NewsService) {}
 
   ngOnInit(): void {
-    this.newsService.getCountries()
-    .subscribe((countries:Country[])=>{
-      this.countries = countries
-    });
+
     this.getSource();
   }
 
-  }
+
   getNewsBySource(source){
     this.newsService.getNewsBySource(source)
     .subscribe((news:any[])=>{
