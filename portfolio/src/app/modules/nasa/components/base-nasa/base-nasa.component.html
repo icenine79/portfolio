@@ -3,8 +3,25 @@
   <div *ngIf="error" class="alert alert-danger text-center" role="alert">
     Sorry, image not available yet. Come back soon!
   </div>
+
+</div>
   <div class="row">
-    <div class="col-md-12" *ngIf="dayPicture">
+    <div class="col-md-12">
+      <h1 class="text-center">Gallery</h1>
+
+    </div>
+  </div>
+  <div class="gallery-container" >
+<!--     <app-gallery [loading]='loading' [gallery]="gallery" (change)="receivedImage($event)"></app-gallery>
+ -->    <app-slideshow [gallery]="gallery"></app-slideshow>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>Gallery</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3 text-center x" *ngIf="dayPicture">
       <mat-card class="example-card mat-elevation-z8" *ngFor="let d of dayPicture">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
@@ -13,7 +30,7 @@
         </mat-card-header>
         <img *ngIf="loading" src="../../../../../assets/images//loading.gif" alt="loading" />
 
-        <img [hidden]="loading" (load)="onLoad()" mat-card-image src="{{d.hdurl}}" alt="{{d.title}}">
+        <img  [hidden]="loading" (load)="onLoad()" mat-card-image src="{{d.hdurl}}" alt="{{d.title}}">
         <mat-card-content>
           <p>
             {{d.explanation}}
@@ -25,15 +42,4 @@
       </mat-card>
 
     </div>
-  </div>
-</div>
-  <div class="row">
-    <div class="col-md-12">
-      <h1 class="text-center">Gallery</h1>
-
-    </div>
-  </div>
-  <div class="gallery-container" >
-    <app-gallery [loading]='loading' [gallery]="gallery" (change)="receivedImage($event)"></app-gallery>
-
   </div>

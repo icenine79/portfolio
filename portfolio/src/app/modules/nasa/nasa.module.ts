@@ -8,11 +8,12 @@ import { CommonModule } from '@angular/common';
 import { BaseNasaComponent } from './components/base-nasa/base-nasa.component';
 import { PictureDetailComponent } from './components/picture-detail/picture-detail.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { SlideshowComponent } from './components/slideshow/slideshow.component';
 
 
 
 @NgModule({
-  declarations: [BaseNasaComponent, PictureDetailComponent, GalleryComponent],
+  declarations: [BaseNasaComponent, PictureDetailComponent, GalleryComponent, SlideshowComponent],
   imports: [
     CommonModule,
     NasaRoutingModule,
