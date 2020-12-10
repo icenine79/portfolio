@@ -1,5 +1,8 @@
 
 mat-card{
-  width:50%;
-  height:80%;
+  width:100%;
+  height:auto;
+}
+.title{
+  font-family: title;
 }

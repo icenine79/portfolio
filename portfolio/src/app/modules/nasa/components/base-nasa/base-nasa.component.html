@@ -1,27 +1,9 @@
 <div class="container">
-
-  <div *ngIf="error" class="alert alert-danger text-center" role="alert">
-    Sorry, image not available yet. Come back soon!
+  <div class="row ">
+    <div class="col-md-6 offset-md-3"style="float:right">
+    <h1 class="title ">Nasa's day picture</h1>
   </div>
-
-</div>
-  <div class="row">
-    <div class="col-md-12">
-      <h1 class="text-center">Gallery</h1>
-
-    </div>
-  </div>
-  <div class="gallery-container" >
-<!--     <app-gallery [loading]='loading' [gallery]="gallery" (change)="receivedImage($event)"></app-gallery>
- -->    <app-slideshow [gallery]="gallery"></app-slideshow>
-  </div>
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <h1>Gallery</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 offset-md-3 text-center x" *ngIf="dayPicture">
+    <div class="col-md-12 text-center x" *ngIf="dayPicture">
       <mat-card class="example-card mat-elevation-z8" *ngFor="let d of dayPicture">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
@@ -43,3 +25,17 @@
 
     </div>
   </div>
+
+  <div *ngIf="error" class="alert alert-danger text-center" role="alert">
+    Sorry, image not available yet. Come back soon!
+  </div>
+
+</div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center">Gallery</h1>
+      <app-gallery [gallery]="gallery"></app-gallery>
+    </div>
+  </div>
+
+

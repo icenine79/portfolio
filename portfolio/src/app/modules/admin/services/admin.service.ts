@@ -29,7 +29,7 @@ export class AdminService {
     })
   }
   getProductById(id:string):Observable<any>{
-    return
+    return {...this.products.find(p=>p.id===id)}
   }
   getProducts(){
     this.http.get<{message:string, products:any}>('http://localhost:3000/api/admin')

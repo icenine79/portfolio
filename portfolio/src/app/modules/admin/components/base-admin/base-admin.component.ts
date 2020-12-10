@@ -53,6 +53,7 @@ product:any;
       }else{
         this.mode="create";
         this.productId=null;
+        console.log(this.mode)
       }
     })
 }

@@ -1,15 +1,3 @@
-@font-face {
-  font-family: title;
-  src: url(../../../assets/fonts/HelveticaNowText-Bold.eot);
-}
-@font-face{
-font-family:body;
-src:url(../../../assets/fonts/HelveticaNowText-Regular.eot);
-}
-@font-face{
-  font-family:mid-title;
-  src:url(../../../assets/fonts/HelveticaNowText-Thin.eot);
-  }
 
 
 .angular{

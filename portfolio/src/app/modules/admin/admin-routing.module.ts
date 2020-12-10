@@ -8,7 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path:'', component:BaseAdminComponent, canActivate: [AuthGuardService, AdminGuardService]},
-  {path:'edit/:postId', component:BaseAdminComponent}
+  {path:'edit/:productId', component:BaseAdminComponent}
 ];
 
 @NgModule({

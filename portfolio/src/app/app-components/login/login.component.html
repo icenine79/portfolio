@@ -26,5 +26,63 @@
     </mat-card>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="layout-column align-items-center">
+
+
+        <h4 data-test-id="total-operations" [(ngModel)]="count" name="count" ngDefaultControl class="pt-50">Total operations performed: {{count}} </h4>
+        <div class="card">
+          <section class="card-text">
+            <div class="layout-row justify-content-around align-items-center mt-40">
+              <input type="number" class="ml-3 mr-3" data-test-id="app-input1" [(ngModel)]="inp1" autocomplete="off" placeholder="Eg: 1"
+                     name="input1"/>
+
+              <label class="ml-2 mr-2 symbol text-center" data-test-id="selected-operator"></label>
+
+              <input type="number" data-test-id="app-input2" [(ngModel)]="inp2" autocomplete="off" class="ml-3 mr-3"
+                     placeholder="Eg: 2"/>
+            </div>
+
+            <div class="layout-row justify-content-around mt-30">
+              <button type="submit" (click)="calculation(inp1,inp2, '+')" data-test-id="add-button"><span
+                class="operationFont" name="symbol" ngDefaultControl  [(ngModel)]="symbol">+</span></button>
+              <button type="submit" (click)="calculation(inp1,inp2, '-')" data-test-id="subtract-button">
+                <span class="operationFont" name="symbol" ngDefaultControl  [(ngModel)]="symbol">-</span></button>
+              <button type="submit"(click)="calculation(inp1,inp2, '*')" data-test-id="multiply-button"><span
+                class="operationFont" name="symbol" ngDefaultControl  [(ngModel)]="symbol">*</span></button>
+              <button type="submit" (click)="calculation(inp1,inp2, '/')" data-test-id="divide-button"><span
+                class="operationFont" name="symbol" ngDefaultControl  [(ngModel)]="symbol">/</span>
+              </button>
+            </div>
+
+
+            <div class="layout-row justify-content-between align-items-center mt-30">
+              <button type="reset" (click)="reset()" class="outline danger" data-test-id="reset-button">
+                Reset
+              </button>
+              <div class="layout-row justify-content-center align-items-center result-container">
+                <h5 *ngIf="result" data-test-id="result" name="result" ngDefaultControl [(ngModel)]="result" class="result-value ma-0 slide-up-fade-in">Result: {{result}}</h5>
+              </div>
+
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+
+        <span [(ngModel)]="capt" name="capt" ngDefaultControl *ngFor="let s of screen">{{s}}</span>
+
+      <button (click)="screenNumbers(9)" class="btn btn-primary">9</button>
+      <button (click)="screenNumbers(8)" class="btn btn-primary">8</button>
+      <button (click)="sum()" class="btn btn-primary">sum</button>
+
+    </div>
+  </div>
 </div>
 
