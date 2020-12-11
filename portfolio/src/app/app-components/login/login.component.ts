@@ -17,9 +17,7 @@ inp2: number;
 result: number;
 symbol: string;
 count: number = 0; //init to prevent NaN output
-screen:any;
-numbers:any[]=[];
-res:any
+
  constructor(private fb:FormBuilder, private auth:AuthService, private localService:LocalService) { }
 
   ngOnInit(): void {
@@ -85,18 +83,7 @@ calculation(inp1, inp2, symbol) {
 
 
 
-screenNumbers(number){
-  this.numbers.push(number)
- this.screen=this.numbers;
-// console.log(this.screen)
-}
 
-sum(){
-  this.numbers.reduce(function(a,b){
-   console.log( a+b)
-  })
-
-}
 
 
 

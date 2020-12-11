@@ -13,6 +13,7 @@ const nasa = () => import('./modules/nasa/nasa.module').then(n=>n.NasaModule)
 const movies = () => import('./modules/movies/movies.module').then(m=>m.MoviesModule);
 const admin = () => import('./modules/admin/admin.module').then(a=>a.AdminModule)
 const news = () => import('./modules/news/news.module').then(a=>a.NewsModule)
+const calc = () => import('./modules/calculator/calculator.module').then(c=>c.CalculatorModule)
 
 const routes: Routes = [
   {path: '', component: ShellComponent,
@@ -22,6 +23,7 @@ children: [
   {path: 'nasa', loadChildren: nasa , canActivate: [AuthGuardService] },
   {path: 'admin', loadChildren: admin, canActivate: [AdminGuardService] },
   {path: 'news', loadChildren: news, canActivate: [AuthGuardService] },
+  {path: 'calculator', loadChildren: calc, canActivate: [AuthGuardService] },
 
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ]},
