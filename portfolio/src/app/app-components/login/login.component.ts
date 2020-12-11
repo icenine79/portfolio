@@ -12,11 +12,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 loginForm:FormGroup
 error:boolean=false;
-inp1: number;
-inp2: number;
-result: number;
-symbol: string;
-count: number = 0; //init to prevent NaN output
 
  constructor(private fb:FormBuilder, private auth:AuthService, private localService:LocalService) { }
 
@@ -36,7 +31,7 @@ count: number = 0; //init to prevent NaN output
       }
     })
 
-       }
+  }
  // get name(){return this.loginForm.get('name')}
 
   get email(){return this.loginForm.get('email')}
@@ -46,56 +41,27 @@ count: number = 0; //init to prevent NaN output
     this.loginForm.reset();
 
 }
-reset() {
-  this.inp1 = +"";
-  this.inp2 = +"";
-}
-
-
-calculation(inp1, inp2, symbol) {
-
-  switch (symbol) {
-    case "+": {
-      this.result = inp1 + inp2;
-      break;
-    }
-    case "-": {
-      this.result = inp1 - inp2;
-      break;
-    }
-    case "*": {
-      this.result = inp1 * inp2;
-      break;
-    }
-    case "/": {
-      this.result = inp1 / inp2;
-      break;
-    }
-    default: {
-      this.result = 0;
-      break;
-    }
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

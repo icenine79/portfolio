@@ -1,25 +1,89 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <h1 *ngIf="total">Total is {{total}}</h1>
-    </div>
-    <div class="col-md-6 screen">
-      <span *ngFor="let n of arrayOfNumbers"><h1>{{n}}</h1></span>
-    </div>
-    <div class="col-md-6 screen2">
-      <span *ngFor="let n of arrayOfNumbers2"><h1>{{n}}</h1></span>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <button (click)="digits(9)" class="btn btn-primary">9</button>
+    <div class="col-md-6 offset-md-3">
+      <div class="screen jumbotron">
+        <h5
+          *ngIf="result"
+          data-test-id="result"
+          name="result"
+          ngDefaultControl
+          [(ngModel)]="result"
+          class="result-value ma-0 slide-up-fade-in"
+        >
+        <h1 class="title">{{ result }}</h1>
+        </h5>
       </div>
-      <div class="col-md-2">
-        <button (click)="digits2(8)" class="btn btn-primary">8</button>
+      <div class="input-wrapper">
+        <input
+          class="form-control"
+          type="number"
+          [(ngModel)]="inp1"
+          autocomplete="off"
+          name="input1"
+        />
       </div>
-      <div class="col-md-2">
-        <button (click)="calculate('+')" class="btn btn-primary">sum</button>
-        <button (click)="calculate('-')" class="btn btn-primary">subtract</button>
-
+      <div class="input-wrapper">
+        <input
+          class="form-control"
+          name="inp2"
+          type="number"
+          [(ngModel)]="inp2"
+          autocomplete="off"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="button-wrapper">
+        <button
+          class="b btn btn-danger"
+          type="submit"
+          name="symbol"
+          ngDefaultControl
+          [(ngModel)]="symbol"
+          (click)="calculation(inp1, inp2, '+')"
+        >
+          +
+        </button>
+      </div>
+      <div class="button-wrapper">
+        <button
+          (click)="calculation(inp1, inp2, '-')"
+          name="symbol"
+          ngDefaultControl
+          [(ngModel)]="symbol"
+          class="b btn btn-danger"
+        >
+          <h1>-</h1>
+        </button>
+      </div>
+      <div class="button-wrapper">
+        <button
+          (click)="calculation(inp1, inp2, '*')"
+          name="symbol"
+          ngDefaultControl
+          [(ngModel)]="symbol"
+          class="b btn btn-danger"
+        >
+          <h1>*</h1>
+        </button>
+      </div>
+      <div class="button-wrapper">
+        <button
+          (click)="calculation(inp1, inp2, '/')"
+          name="symbol"
+          ngDefaultControl
+          [(ngModel)]="symbol"
+          class="b btn btn-danger"
+        >
+          <h1>/</h1>
+        </button>
+      </div>
+      <div class="button-wrapper">
+        <button class="b btn btn-danger" type="reset" (click)="reset()">
+          C
+        </button>
       </div>
     </div>
   </div>

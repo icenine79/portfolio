@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-base-calculator',
@@ -7,53 +6,48 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./base-calculator.component.css']
 })
 export class BaseCalculatorComponent implements OnInit {
-arrayOfNumbers:any[]=[]
-arrayOfNumbers2:any[]=[]
+
 total:any;
+inp1: number;
+inp2: number;
+result: number;
+symbol: string;
+count: number = 0; //init to prevent NaN output
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  reset() {
+    this.inp1 = +"";
+    this.inp2 = +"";
+  }
 
-digits(number:any){
-  this.arrayOfNumbers.push(number);
-  console.log(number)
-  console.log(this.arrayOfNumbers)
-}
-digits2(number:any){
-  this.arrayOfNumbers2.push(number);
-  console.log(number)
-  console.log(this.arrayOfNumbers2)
-}
-calculate(symbol:any){
 
-let x = this.arrayOfNumbers.concat(this.arrayOfNumbers2); //merge the arrays
+  calculation(inp1, inp2, symbol) {
 
-if(symbol==="+"){
-  this.total=x.reduce((a, b) => a + b); //sum operation
-}
-if(symbol==="-"){
-  this.total=x.reduce((a, b) => a - b); //subtract operation
-}
-console.log('operation result is ' +this.total)
-
-this.arrayOfNumbers = this.arrayOfNumbers.filter((n)=>{ //empty the array
-	if(n){
-return false
-}
-})
-this.arrayOfNumbers2 = this.arrayOfNumbers2.filter((n)=>{ //empty the second array
-	if(n){
-return false
-}
-})
-}
-filter(displayedArray:any){
-  displayedArray = displayedArray.filter((n)=>{
-    if(n){
-      return false;
+    switch (symbol) {
+      case "+": {
+        this.result = inp1 + inp2;
+        break;
+      }
+      case "-": {
+        this.result = inp1 - inp2;
+        break;
+      }
+      case "*": {
+        this.result = inp1 * inp2;
+        break;
+      }
+      case "/": {
+        this.result = inp1 / inp2;
+        break;
+      }
+      default: {
+        this.result = 0;
+        break;
+      }
     }
-  })
 }
 }

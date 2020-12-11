@@ -1,0 +1,26 @@
+.screen{
+  width:100%;
+  height:100px;
+}
+.button-wrapper {
+  width:100px;
+  height:100px;
+  display:inline-block;
+  margin-left:5px;
+  margin-top: 5px;
+}
+.b{
+  width:100px;
+  height:100px;
+}
+.button-wrapper-equal{
+  width:302px;
+  height:100px;
+  display: inline-block;
+  margin-left:5px;
+  margin-top: 5px;
+}
+.b-equal{
+  width:310px;
+  height:100px;
+}
