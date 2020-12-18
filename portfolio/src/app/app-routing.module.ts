@@ -14,6 +14,7 @@ const movies = () => import('./modules/movies/movies.module').then(m=>m.MoviesMo
 const admin = () => import('./modules/admin/admin.module').then(a=>a.AdminModule)
 const news = () => import('./modules/news/news.module').then(a=>a.NewsModule)
 const calc = () => import('./modules/calculator/calculator.module').then(c=>c.CalculatorModule)
+const weather = () => import('./modules/weather/weather.module').then(c=>c.WeatherModule)
 
 const routes: Routes = [
   {path: '', component: ShellComponent,
@@ -24,6 +25,7 @@ children: [
   {path: 'admin', loadChildren: admin, canActivate: [AdminGuardService] },
   {path: 'news', loadChildren: news, canActivate: [AuthGuardService] },
   {path: 'calculator', loadChildren: calc, canActivate: [AuthGuardService] },
+  {path: 'weather', loadChildren: weather, canActivate: [AuthGuardService] },
 
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ]},
