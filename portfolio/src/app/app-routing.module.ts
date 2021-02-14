@@ -15,7 +15,7 @@ const admin = () => import('./modules/admin/admin.module').then(a=>a.AdminModule
 const news = () => import('./modules/news/news.module').then(a=>a.NewsModule)
 const calc = () => import('./modules/calculator/calculator.module').then(c=>c.CalculatorModule)
 const weather = () => import('./modules/weather/weather.module').then(c=>c.WeatherModule)
-
+const books = ()=> import('./modules/books/books.module').then(b=>b.BooksModule):
 const routes: Routes = [
   {path: '', component: ShellComponent,
 children: [
@@ -26,6 +26,7 @@ children: [
   {path: 'news', loadChildren: news, canActivate: [AuthGuardService] },
   {path: 'calculator', loadChildren: calc, canActivate: [AuthGuardService] },
   {path: 'weather', loadChildren: weather, canActivate: [AuthGuardService] },
+  {path: 'books', loadChildren: books, canActivate: [AuthGuardService] },
 
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ]},
