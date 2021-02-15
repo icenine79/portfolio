@@ -6,4 +6,5 @@ export interface User{
   isAdmin?: boolean;
   token?: string;
   expiresIn?: number;
+  book?:string;
 }
