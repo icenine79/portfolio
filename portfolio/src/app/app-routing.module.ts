@@ -15,7 +15,8 @@ const admin = () => import('./modules/admin/admin.module').then(a=>a.AdminModule
 const news = () => import('./modules/news/news.module').then(a=>a.NewsModule)
 const calc = () => import('./modules/calculator/calculator.module').then(c=>c.CalculatorModule)
 const weather = () => import('./modules/weather/weather.module').then(c=>c.WeatherModule)
-const books = ()=> import('./modules/books/books.module').then(b=>b.BooksModule):
+const books = ()=> import('./modules/books/books.module').then(b=>b.BooksModule);
+const sw=()=>import('./modules/star-wars/star-wars.module').then(s=>s.StarWarsModule);
 const routes: Routes = [
   {path: '', component: ShellComponent,
 children: [
@@ -27,6 +28,8 @@ children: [
   {path: 'calculator', loadChildren: calc, canActivate: [AuthGuardService] },
   {path: 'weather', loadChildren: weather, canActivate: [AuthGuardService] },
   {path: 'books', loadChildren: books, canActivate: [AuthGuardService] },
+  {path: 'starwars', loadChildren: sw, canActivate: [AuthGuardService] },
+
 
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ]},

@@ -1,3 +1,7 @@
+import { StarWarsModule } from './modules/star-wars/star-wars.module';
+import { BooksModule } from './modules/books/books.module';
+import { StarWarsService } from './modules/star-wars/services/star-wars.service';
+import { BookService } from './modules/books/services/book.service';
 import { WeatherService } from './modules/weather/services/weather.service';
 import { MovieService } from './modules/movies/services/movie.service';
 import { NasaService } from './modules/nasa/services/nasa.service';
@@ -41,6 +45,8 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
     NgbModule,
     NasaModule,
     MoviesModule,
+    BooksModule,
+    StarWarsModule,
     HttpClientModule
 
   ],
@@ -52,7 +58,9 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
     AuthService,
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
-    WeatherService
+    WeatherService,
+    BookService,
+    StarWarsService
 
   ],
   bootstrap: [AppComponent]

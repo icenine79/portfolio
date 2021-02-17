@@ -7,7 +7,7 @@ const userRoutes = require("./routes/user");
 const nasaRoutes = require("./routes/nasa");
 const movieRoutes = require("./routes/movies");
 const messagesRoutes = require("./routes/messages");
-
+const booksRoutes = require("./routes/books");
 const app = express();
 
 mongoose
@@ -42,6 +42,7 @@ app.use("/api/user", userRoutes);
 app.use("/api/nasa", nasaRoutes);
 app.use("/api/movies", movieRoutes);
 app.use("/api/messages", messagesRoutes);
+app.use("/api/books", booksRoutes);
 
 module.exports = app;
 

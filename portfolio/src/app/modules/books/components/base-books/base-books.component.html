@@ -1,1 +1,68 @@
-<p>base-books works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <mat-card class="mat-elevation-z8">
+      <form class="form-signin" [formGroup]="submitBook" (ngSubmit)="onSubmit()">
+        <h1 class="h3 mb-3 font-weight-normal">Submit a book of your choice!</h1>
+
+        <label for="name" class="sr-only">Name</label>
+        <input type="text" formControlName="name" class="form-control" placeholder="Name" required autofocus>
+        <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+          <div *ngIf="name.errors.required">Your name is required</div>
+        </div>
+
+        <label for="title" class="sr-only">Book Title</label>
+        <input type="text" formControlName="title" class="form-control" placeholder="Book title" required>
+        <div *ngIf="title.touched && title.invalid" class="alert alert-danger">
+          <div *ngIf="title.errors.required">Please provide a book title</div>
+        </div>
+
+        <label for="author" class="sr-only">Author</label>
+        <input type="text" formControlName="author" class="form-control" placeholder="Author" required>
+        <div *ngIf="author.touched && author.invalid" class="alert alert-danger">
+          <div *ngIf="author.errors.required">Please enter the author's name</div>
+        </div>
+        <label for="category" class="sr-only">Category</label>
+        <input type="text" formControlName="category" class="form-control" placeholder="Category" required>
+        <div *ngIf="category.touched && category.invalid" class="alert alert-danger">
+          <div *ngIf="category.errors.required">Please choose a category</div>
+        </div>
+        <!-- <button class="btn btn-success" (click)="filePicker.click()">Add a book cover</button>
+        <input type="file" #filePicker (change)="onImagePicked($event)">
+        <div class="image-preview" *ngIf="imagePreview!='' && imagePreview!==null && imagePreview.valid">
+          <img [src]="imagePreview" [alt]="title.value">
+        </div> -->
+        <button [disabled]="submitBook.invalid" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
+      </form>
+     <!--  <div *ngIf="error" class="alert alert-danger">User already exists</div>
+      <div *ngIf="successMessage" class="al ert alert-success">User registrated successfully. Now redirecting to log in page</div>
+    -->
+    </mat-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="list-group">
+        <a
+        class="list-group-item" *ngFor="let b of books"
+        [queryParams]="{category:b.category}"
+        routerLink="/books"
+        >
+
+        {{b.category}}
+        </a>
+      </ul>
+      <div class="col-md-6">
+        <ul class="list-group">
+          <a  class="list-group-item" *ngFor="let f of filteredBooks"
+          [routerLink]="['/books-detail', f.id]"
+          >
+            {{f.title}}
+          </a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
